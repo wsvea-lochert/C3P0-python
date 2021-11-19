@@ -2,40 +2,33 @@ import os
 import sys
 import time
 import json
-from PIL import ImageTk, Image
-
-from tkinter import Tk, Label, Button, Entry, StringVar, IntVar, Checkbutton, Canvas, messagebox, filedialog, ttk
-
+from tkinter import *
+from PIL import ImageTk,Image
+from utils.image_handler import print_pos
+from utils.button_handler import ButtonHandler
+from utils.button_maker import make_buttons
 
 
 def main():
     print("Starting...")
-    """Open a gui window"""
-
-
-    """open a gui window"""
     root = Tk()
-    root.title("My GUI")
-    # root.geometry("1920x1200")
-    root.resizable(0, 0)
-    root.configure(background="white")
-    root.configure(highlightbackground="black")
-    root.configure(highlightcolor="black")
-    root.configure(width=1920)
-    root.configure(height=1200)
-    root.configure(relief="groove")
-
-    # add a canvas
+    # set root window size
+    root.geometry("1920x1200")
+    btns = ButtonHandler()
+    # Canvas code
     canvas = Canvas(root, width=1000, height=1000)
-    canvas.grid(row=2, column=3)
+    # set canvas background to black
+    canvas.configure(background='black')
+    canvas.pack()
+    img = ImageTk.PhotoImage(Image.open("C:/Users/William/Documents/C3P0 datasets/greenscreen/resized/IMG_20210924_150708.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=img)
 
-    """add an image in  to C:/Users/William/Documents/C3P0 datasets/greenscreen2/IMG_20211102_203858_BURST098.jpg the window"""
-    fp = open("C:/Users/William/Documents/C3P0 datasets/greenscreen2/IMG_20211102_203858_BURST098.jpg", "rb")
-    img = Image.open(fp)
-    img = ImageTk.PhotoImage(img)
-    l = Label(image=img)
-    l.pack()
-    # canvas.create_image(1000, 1000, image=img, anchor=NW)
+    canvas.bind("<Key>", print_pos)
+    canvas.bind("<Button-1>", print_pos)
+
+    make_buttons(root, btns)
+    
+    root.mainloop()
 
     """open a gui window"""
     root.mainloop()
