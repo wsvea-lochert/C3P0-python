@@ -6,16 +6,11 @@ import os
 def read_folder(folder):
     images = []
     for image in os.listdir(folder):
-        if image.endswith(".png"):
-            images.append(image)
+        images.append(image)
     return images
 
 
-"""Open an image using Pillow"""
-# def open_image(image_path):
-#     return Image.open(image_path)
-
-
-"""Print mouse position on image to the console when mouse is clicked"""
-def print_pos(event):
-    print("Mouse clicked at: ", event.x, event.y)
+def print_pos(event):                # Print mouse position on image to the console when mouse is clicked
+    x = int(event.x / (1000/224))    # normalize the coordinates between 0 and 224
+    y = int(event.y / (1000/224))
+    print("Mouse clicked at: ", x, y)
