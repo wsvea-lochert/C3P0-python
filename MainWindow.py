@@ -12,21 +12,22 @@ class MainWindow:
         self.w, self.h = root.winfo_screenwidth(), root.winfo_screenheight()  # set window size to full screen
         root.geometry("%dx%d+0+0" % (self.w, self.h))  # set window size to full screen
         root.resizable(width=True, height=True)
-        root.configure(background='#ffffff')
+        root.configure(background='#3A3A3A')
 
-        self.make_buttons(root)                                        # Make the joint buttons
+        # self.make_buttons(root)                                        # Make the joint buttons
 
         self.img_dir = 'C:/Users/William/Documents/C3P0 datasets/greenscreen/resized/'              # Set the directory for the images
-        self.initial_image = "IMG_20210924_150708.jpg"                                              # Set the initial image to canvas
         self.images = os.listdir(self.img_dir)                                                      # Get the list of images in the directory
         self.index = 0                                                                              # Set the index to 0
 
+        self.image_names = []                                                                       # Create a list to hold the image names
         self.photoImages = []
         self.load_images()                                                                         # Load the images
 
         self.canvas = Canvas(root, width=1000, height=1000)                                         # create canvas
         self.canvas.place(x=self.w / 3.5, y=self.h / 8)                                             # place canvas
-        self.canvas_image = ImageTk.PhotoImage(Image.open(f'{self.img_dir}{self.initial_image}'))   # The initial image on the canvas
+        self.initial_image = self.photoImages[0]
+        self.canvas_image = self.initial_image   # The initial image on the canvas
         self.image_on_canvas = self.canvas.create_image(0, 0, anchor=NW, image=self.canvas_image)   # place image on canvas
 
         self.canvas.bind("<Key>", print_pos)                                                        # bind key press to print position
@@ -39,6 +40,81 @@ class MainWindow:
         self.prev_button = Button(root, text="Prev", command=self.prev_data, height=3, width=20, bg="#EAC611", fg="black")
         self.prev_button.place(x=self.w / 2.5, y=self.h / 50)
 
+        #  All the data points needed for our dataset.
+        self.head = {'x': 0, 'y': 0}            # 0
+        self.image = self.images[self.index]    # Current Image name
+        self.left_ankle = {'x': 0, 'y': 0}      # 1
+        self.left_elbow = {'x': 0, 'y': 0}      # 2
+        self.left_hip = {'x': 0, 'y': 0}        # 3
+        self.left_knee = {'x': 0, 'y': 0}       # 4
+        self.left_shoulder = {'x': 0, 'y': 0}   # 5
+        self.left_wrist = {'x': 0, 'y': 0}      # 6
+        self.neck = {'x': 0, 'y': 0}            # 7
+        self.right_ankle = {'x': 0, 'y': 0}     # 8
+        self.right_elbow = {'x': 0, 'y': 0}     # 9
+        self.right_hip = {'x': 0, 'y': 0}       # 10
+        self.right_knee = {'x': 0, 'y': 0}      # 11
+        self.right_shoulder = {'x': 0, 'y': 0}  # 12
+        self.right_wrist = {'x': 0, 'y': 0}     # 13
+        self.torso = {'x': 0, 'y': 0}           # 14
+
+        self.selected_joint = 0                 # The current selected joint, change the number between 0 and 14 to change the selected joint.
+
+        self.head_button = Button(root, text="Head", command=self.head_selected, height=2, width=20, bg='#B63DC7', fg='white')
+        self.head_button.place(x=self.w / 2.5, y=self.h / 13)
+        self.left_ankle_button = Button(root, text="Left Ankle", command=self.left_ankle_selected, height=2, width=20, bg='#3D84C7', fg='white')
+        self.left_ankle_button.place(x=self.w / 5.4, y=self.h / 1.7)
+        self.left_elbow_button = Button(root, text="Left Elbow", command=self.left_elbow_selected, height=2, width=20, bg='#3D84C7', fg='white')
+        self.left_elbow_button.place(x=self.w / 5.4, y=self.h / 3.5)
+        self.left_hip_button = Button(root, text="Left Hip", command=self.left_hip_selected, height=2, width=20, bg='#3D84C7', fg='white')
+        self.left_hip_button.place(x=self.w / 5.4, y=self.h / 2.5)
+        self.left_knee_button = Button(root, text="Left Knee", command=self.left_knee_selected, height=2, width=20, bg='#3D84C7', fg='white')
+        self.left_knee_button.place(x=self.w / 5.4, y=self.h / 2)
+        self.left_shoulder_button = Button(root, text="Left Shoulder", command=self.left_shoulder_selected, height=2, width=20, bg='#3D84C7', fg='white')
+        self.left_shoulder_button.place(x=self.w / 5.4, y=self.h / 5)
+        self.left_writs_button = Button(root, text="Left Writs", command=self.left_wrist_selected, height=2, width=20, bg='#3D84C7', fg='white')
+        self.left_writs_button.place(x=self.w / 5.4, y=self.h / 3)
+        self.neck_button = Button(root, text="Neck", command=self.neck_selected, height=2, width=20, bg='#B63DC7', fg='white')
+        self.neck_button.place(x=self.w / 2, y=self.h / 13)
+        self.right_ankle_button = Button(root, text="Right Ankle", command=self.right_ankle_selected, height=2, width=20, bg="#C7463D", fg='white')
+        self.right_ankle_button.place(x=self.w / 1.4, y=self.h / 1.7)
+        self.right_elbow_button = Button(root, text="Right Elbow", command=self.right_elbow_selected, height=2, width=20, bg="#C7463D", fg='white')
+        self.right_elbow_button.place(x=self.w / 1.4, y=self.h / 3.5)
+        self.right_hip_button = Button(root, text="Right Hip", command=self.right_hip_selected, height=2, width=20, bg="#C7463D", fg='white')
+        self.right_hip_button.place(x=self.w / 1.4, y=self.h / 2.5)
+        self.right_knee_button = Button(root, text="Right Knee", command=self.right_knee_selected, height=2, width=20, bg="#C7463D", fg='white')
+        self.right_knee_button.place(x=self.w / 1.4, y=self.h / 2)
+        self.right_shoulder_button = Button(root, text="Right Shoulder", command=self.right_shoulder_selected, height=2, width=20, bg="#C7463D", fg='white')
+        self.right_shoulder_button.place(x=self.w / 1.4, y=self.h / 5)
+        self.right_writs_button = Button(root, text="Right Writs", command=self.right_wrist_selected, height=2, width=20, bg="#C7463D", fg='white')
+        self.right_writs_button.place(x=self.w / 1.4, y=self.h / 3)
+        self.torso_button = Button(root, text="Torso", command=self.torso_selected, height=2, width=20, bg='#B63DC7', fg='white')
+        self.torso_button.place(x=self.w / 2.2, y=self.h / 1.2)
+
+        self.save_button = Button(root, text="Save", command=self.save_pose, height=3, width=20, bg="green", fg="white")
+        self.save_button.place(x=self.w / 1.4, y=self.h / 1.3)
+
+        """Keyboard listener if the s key is pressed run save_data()"""
+        root.bind('<Key>', self.key_pressed)
+        #self.canvas.bind('<s>', self.save_pose)
+
+        self.joint_names = ['head', 'left_ankle', 'left_elbow', 'left_hip', 'left_knee', 'left_shoulder', 'left_wrist', 'neck',
+                            'right_ankle', 'right_elbow', 'right_hip', 'right_knee', 'right_shoulder', 'right_wrist', 'torso']
+
+        """Text with the currently selected joint"""
+        self.selected_joint_text = Label(root, text="Selected Joint: " + self.joint_names[self.selected_joint], font=("Helvetica", 16), bg='#B63DC7', fg='white')
+        self.selected_joint_text.place(x=200, y=100)
+
+    def update_joint_text(self):
+        """Updates the currently selected joint text"""
+        if self.joint_names[self.selected_joint].__contains__("left"):
+            self.selected_joint_text.config(text="Selected Joint: " + self.joint_names[self.selected_joint], bg='#3D84C7')
+        elif self.joint_names[self.selected_joint].__contains__("right"):
+            self.selected_joint_text.config(text="Selected Joint: " + self.joint_names[self.selected_joint], bg='#C7463D')
+        else:
+            self.selected_joint_text.config(text="Selected Joint: " + self.joint_names[self.selected_joint], bg='#B63DC7')
+
+
     def next_data(self):
         if self.index == self.images.__len__() - 1:
             print('this is the last image')
@@ -46,6 +122,7 @@ class MainWindow:
             print("Next pressed")
             self.index += 1
             self.canvas.itemconfig(self.image_on_canvas, image=self.photoImages[self.index])
+            self.update_on_next()
 
     def prev_data(self):
         if self.index == 0:
@@ -57,156 +134,118 @@ class MainWindow:
 
     def load_images(self):
         for image in self.images:
-            self.photoImages.append(ImageTk.PhotoImage(Image.open(f'{self.img_dir}{image}')))
+            self.photoImages.append(ImageTk.PhotoImage(Image.open(f'{self.img_dir}{image}').rotate(-90)))  # Remove rotate if images are not rotated when loading.
 
+    def update_on_next(self):
+        self.image = self.images[self.index]
+        self.head = {'x': 0, 'y': 0}
+        self.left_ankle = {'x': 0, 'y': 0}
+        self.left_elbow = {'x': 0, 'y': 0}
+        self.left_hip = {'x': 0, 'y': 0}
+        self.left_knee = {'x': 0, 'y': 0}
+        self.left_shoulder = {'x': 0, 'y': 0}
+        self.left_wrist = {'x': 0, 'y': 0}
+        self.neck = {'x': 0, 'y': 0}
+        self.right_ankle = {'x': 0, 'y': 0}
+        self.right_elbow = {'x': 0, 'y': 0}
+        self.right_hip = {'x': 0, 'y': 0}
+        self.right_knee = {'x': 0, 'y': 0}
+        self.right_shoulder = {'x': 0, 'y': 0}
+        self.right_wrist = {'x': 0, 'y': 0}
+        self.torso = {'x': 0, 'y': 0}
+        print(f'Next image was selected, joints updated, current image is {self.image}')
 
+    def update_on_previous(self):
+        self.image = self.images[self.index]
+        print(f'Previous image was selected, joints updated, current image is {self.image}')
 
-    def make_buttons(self, root):
-        right_writs_button = Button(root, text="Right Writs", command=self.right_wrist, height=2, width=20, bg="#C7463D", fg='white')
-        right_writs_button.place(x=self.w / 1.4, y=self.h / 3)
-
-        right_elbow_button = Button(root, text="Right Elbow", command=self.right_elbow, height=2, width=20, bg="#C7463D", fg='white')
-        right_elbow_button.place(x=self.w / 1.4, y=self.h / 3.5)
-
-        right_shoulder_button = Button(root, text="Right Shoulder", command=self.right_shoulder, height=2, width=20,
-                                       bg="#C7463D", fg='white')
-        right_shoulder_button.place(x=self.w / 1.4, y=self.h / 5)
-
-        right_hip_button = Button(root, text="Right Hip", command=self.right_hip, height=2, width=20, bg="#C7463D",
-                                  fg='white')
-        right_hip_button.place(x=self.w / 1.4, y=self.h / 2.5)
-
-        right_knee_button = Button(root, text="Right Knee", command=self.right_knee, height=2, width=20, bg="#C7463D",
-                                   fg='white')
-        right_knee_button.place(x=self.w / 1.4, y=self.h / 2)
-
-        right_ankle_button = Button(root, text="Right Ankle", command=self.right_ankle, height=2, width=20,
-                                    bg="#C7463D", fg='white')
-        right_ankle_button.place(x=self.w / 1.4, y=self.h / 1.7)
-
-        left_writs_button = Button(root, text="Left Writs", command=self.left_wrist, height=2, width=20, bg='#3D84C7',
-                                   fg='white')
-        left_writs_button.place(x=self.w / 5.4, y=self.h / 3)
-
-        left_elbow_button = Button(root, text="Left Elbow", command=self.left_elbow, height=2, width=20, bg='#3D84C7',
-                                   fg='white')
-        left_elbow_button.place(x=self.w / 5.4, y=self.h / 3.5)
-
-        left_shoulder_button = Button(root, text="Left Shoulder", command=self.left_shoulder, height=2, width=20,
-                                      bg='#3D84C7', fg='white')
-        left_shoulder_button.place(x=self.w / 5.4, y=self.h / 5)
-
-        left_hip_button = Button(root, text="Left Hip", command=self.left_hip, height=2, width=20, bg='#3D84C7',
-                                 fg='white')
-        left_hip_button.place(x=self.w / 5.4, y=self.h / 2.5)
-
-        left_knee_button = Button(root, text="Left Knee", command=self.left_knee, height=2, width=20, bg='#3D84C7',
-                                  fg='white')
-        left_knee_button.place(x=self.w / 5.4, y=self.h / 2)
-
-        left_ankle_button = Button(root, text="Left Ankle", command=self.left_ankle, height=2, width=20, bg='#3D84C7',
-                                   fg='white')
-        left_ankle_button.place(x=self.w / 5.4, y=self.h / 1.7)
-
-        torso_button = Button(root, text="Torso", command=self.torso, height=2, width=20, bg='#B63DC7', fg='white')
-        torso_button.place(x=self.w / 2.2, y=self.h / 1.2)
-
-        head_button = Button(root, text="Head", command=self.head, height=2, width=20, bg='#B63DC7', fg='white')
-        head_button.place(x=self.w / 2.5, y=self.h / 13)
-
-        neck_button = Button(root, text="Neck", command=self.neck, height=2, width=20, bg='#B63DC7', fg='white')
-        neck_button.place(x=self.w / 2, y=self.h / 13)
-
-        save_button = Button(root, text="Save", command=self.save_data, height=3, width=20, bg="green", fg="white")
-        save_button.place(x=self.w / 1.4, y=self.h / 1.3)
-
-        # Buttons for handling moving through the data
-
-
-
-
-    def right_wrist(self):
-        print("Right Writs selected")
-        self.selected_joint = "right_wrist"
-        self.index = 0
-        print(self.selected_joint)
-
-    def left_wrist(self):
-        print("Left Writs selected")
-        self.index = 1
-        self.selected_joint = "left_wrist"
-
-    def right_elbow(self):
-        print("Right Elbow selected")
-        self.index = 2
-        self.selected_joint = "right_elbow"
-
-    def left_elbow(self):
-        print("Left Elbow selected")
-        self.index = 3
-        self.selected_joint = "left_elbow"
-
-    def right_shoulder(self):
-        print("Right Shoulder selected")
-        self.index = 4
-        self.selected_joint = "right_shoulder"
-
-    def left_shoulder(self):
-        print("Left Shoulder selected")
-        self.index = 5
-        self.selected_joint = "left_shoulder"
-
-    def right_hip(self):
-        print("Right Hip selected")
-        self.index = 6
-        self.selected_joint = "right_hip"
-
-    def left_hip(self):
-        print("Left Hip selected")
-        self.index = 7
-        self.selected_joint = "left_hip"
-
-    def right_knee(self):
-        print("Right Knee selected")
-        self.index = 8
-        self.selected_joint = "right_knee"
-
-    def left_knee(self):
-        print("Left Knee selected")
-        self.index = 9
-        self.selected_joint = "left_knee"
-
-    def right_ankle(self):
-        print("Right Ankle selected")
-        self.index = 10
-        self.selected_joint = "right_ankle"
-
-    def left_ankle(self):
-        print("Left Ankle selected")
-        self.index = 11
-        self.selected_joint = "left_ankle"
-
-    def neck(self):
-        print("Neck selected")
-        self.index = 12
-        self.selected_joint = "neck"
-
-    def head(self):
-        print("Head selected")
-        self.index = 13
-        self.selected_joint = "head"
-
-    def torso(self):
-        print("Torso selected")
-        self.index = 14
-        self.selected_joint = "torso"
-
-    def save_data(self):
+    def save_pose(self):
+        self.head = {'x': 0, 'y': 0}
         print("Save data selected")
 
-    # def next_data(self, canvas):
-    #     self.index = self.index + 1
-    #     # canvas.create_image(0, 0, image=ImageTk.PhotoImage(Image.open(f'{self.img_path}{self.images[self.index]}')), anchor=NW)
-    #     canvas.itemconfig(image=ImageTk.PhotoImage(Image.open(f'{self.img_path}{self.images[self.index]}')), tagOrId="img")
-    #     # canvas.update()
-    #     print(f"Next data selected, current image {self.images[self.index]}")
+    def key_pressed(self, event):
+        print(f"Key pressed: {event.char}")
+        if event.char == 's':
+            self.save_pose()
+        elif event.char == 'e':
+            self.next_data()
+        elif event.char == 'q':
+            self.prev_data()
+
+    def head_selected(self):
+        print("Head selected")
+        self.selected_joint = 0
+        self.update_joint_text()
+
+    def right_wrist_selected(self):
+        print("Right Writs selected")
+        self.selected_joint = 13
+        self.update_joint_text()
+
+    def left_wrist_selected(self):
+        print("Left Writs selected")
+        self.selected_joint = 6
+        self.update_joint_text()
+
+    def right_elbow_selected(self):
+        print("Right Elbow selected")
+        self.selected_joint = 9
+        self.update_joint_text()
+
+    def left_elbow_selected(self):
+        print("Left Elbow selected")
+        self.selected_joint = 2
+        self.update_joint_text()
+
+    def right_shoulder_selected(self):
+        print("Right Shoulder selected")
+        self.selected_joint = 12
+        self.update_joint_text()
+
+    def left_shoulder_selected(self):
+        print("Left Shoulder selected")
+        self.selected_joint = 5
+        self.update_joint_text()
+
+    def right_hip_selected(self):
+        print("Right Hip selected")
+        self.selected_joint = 10
+        self.update_joint_text()
+
+    def left_hip_selected(self):
+        print("Left Hip selected")
+        self.selected_joint = 3
+        self.update_joint_text()
+
+    def right_knee_selected(self):
+        print("Right Knee selected")
+        self.selected_joint = 11
+        self.update_joint_text()
+
+    def left_knee_selected(self):
+        print("Left Knee selected")
+        self.selected_joint = 4
+        self.update_joint_text()
+
+    def right_ankle_selected(self):
+        print("Right Ankle selected")
+        self.selected_joint = 8
+        self.update_joint_text()
+
+    def left_ankle_selected(self):
+        print("Left Ankle selected")
+        self.selected_joint = 1
+        self.update_joint_text()
+
+    def neck_selected(self):
+        print("Neck selected")
+        self.selected_joint = 7
+        self.update_joint_text()
+
+    def torso_selected(self):
+        print("Torso selected")
+        self.selected_joint = 14
+        self.update_joint_text()
+
+
+
