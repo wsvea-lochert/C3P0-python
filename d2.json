@@ -1,0 +1,128 @@
+{
+   "image2": {
+      "head": {
+         "x": 97,
+         "y": 34
+      },
+      "image": "IMG_20210924_150717_BURST003.jpg",
+      "left_ankle": {
+         "x": 0,
+         "y": 0
+      },
+      "left_elbow": {
+         "x": 0,
+         "y": 0
+      },
+      "left_hip": {
+         "x": 0,
+         "y": 0
+      },
+      "left_knee": {
+         "x": 0,
+         "y": 0
+      },
+      "left_shoulder": {
+         "x": 0,
+         "y": 0
+      },
+      "left_wrist": {
+         "x": 0,
+         "y": 0
+      },
+      "neck": {
+         "x": 0,
+         "y": 0
+      },
+      "right_ankle": {
+         "x": 0,
+         "y": 0
+      },
+      "right_elbow": {
+         "x": 0,
+         "y": 0
+      },
+      "right_hip": {
+         "x": 0,
+         "y": 0
+      },
+      "right_knee": {
+         "x": 0,
+         "y": 0
+      },
+      "right_shoulder": {
+         "x": 0,
+         "y": 0
+      },
+      "right_writs": {
+         "x": 0,
+         "y": 0
+      },
+      "torso": {
+         "x": 0,
+         "y": 0
+      }
+   },
+   "image0": {
+      "head": {
+         "x": 186,
+         "y": 114
+      },
+      "image": "IMG_20210924_150708.jpg",
+      "left_ankle": {
+         "x": 0,
+         "y": 0
+      },
+      "left_elbow": {
+         "x": 0,
+         "y": 0
+      },
+      "left_hip": {
+         "x": 0,
+         "y": 0
+      },
+      "left_knee": {
+         "x": 0,
+         "y": 0
+      },
+      "left_shoulder": {
+         "x": 0,
+         "y": 0
+      },
+      "left_wrist": {
+         "x": 0,
+         "y": 0
+      },
+      "neck": {
+         "x": 0,
+         "y": 0
+      },
+      "right_ankle": {
+         "x": 0,
+         "y": 0
+      },
+      "right_elbow": {
+         "x": 0,
+         "y": 0
+      },
+      "right_hip": {
+         "x": 0,
+         "y": 0
+      },
+      "right_knee": {
+         "x": 0,
+         "y": 0
+      },
+      "right_shoulder": {
+         "x": 0,
+         "y": 0
+      },
+      "right_writs": {
+         "x": 0,
+         "y": 0
+      },
+      "torso": {
+         "x": 0,
+         "y": 0
+      }
+   }
+}

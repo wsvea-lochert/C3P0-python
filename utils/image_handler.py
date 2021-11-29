@@ -10,7 +10,4 @@ def read_folder(folder):
     return images
 
 
-def print_pos(event):                # Print mouse position on image to the console when mouse is clicked
-    x = int(event.x / (1000/224))    # normalize the coordinates between 0 and 224
-    y = int(event.y / (1000/224))
-    print("Mouse clicked at: ", x, y)
+
