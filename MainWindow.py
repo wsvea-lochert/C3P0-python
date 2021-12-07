@@ -2,7 +2,7 @@ import os
 import json
 from tkinter import *
 from PIL import ImageTk, Image
-# from utils.image_handler import print_pos
+from predict_pose import predict_pose
 
 
 class MainWindow:
@@ -560,6 +560,45 @@ class MainWindow:
             self.move_pose_up()
         elif event.char == 'k':
             self.move_pose_down()
+        elif event.char == 'f':
+            self.set_predicted_pose()
+
+    def set_predicted_pose(self):
+        pose = predict_pose(f'{self.img_dir}{self.image}')
+        self.head['x'] = pose[0][0][0]
+        self.head['y'] = pose[0][0][1]
+        self.left_ankle['x'] = pose[0][1][0]
+        self.left_ankle['y'] = pose[0][1][1]
+        self.left_elbow['x'] = pose[0][2][0]
+        self.left_elbow['y'] = pose[0][2][1]
+        self.left_hip['x'] = pose[0][3][0]
+        self.left_hip['y'] = pose[0][3][1]
+        self.left_knee['x'] = pose[0][4][0]
+        self.left_knee['y'] = pose[0][4][1]
+        self.left_shoulder['x'] = pose[0][5][0]
+        self.left_shoulder['y'] = pose[0][5][1]
+        self.left_wrist['x'] = pose[0][6][0]
+        self.left_wrist['y'] = pose[0][6][1]
+        self.neck['x'] = pose[0][7][0]
+        self.neck['y'] = pose[0][7][1]
+        self.right_ankle['x'] = pose[0][8][0]
+        self.right_ankle['y'] = pose[0][8][1]
+        self.right_elbow['x'] = pose[0][9][0]
+        self.right_elbow['y'] = pose[0][9][1]
+        self.right_hip['x'] = pose[0][10][0]
+        self.right_hip['y'] = pose[0][10][1]
+        self.right_knee['x'] = pose[0][11][0]
+        self.right_knee['y'] = pose[0][11][1]
+        self.right_shoulder['x'] = pose[0][12][0]
+        self.right_shoulder['y'] = pose[0][12][1]
+        self.right_wrist['x'] = pose[0][13][0]
+        self.right_wrist['y'] = pose[0][13][1]
+        self.torso['x'] = pose[0][14][0]
+        self.torso['y'] = pose[0][14][1]
+        self.set_button_text()
+        self.update_circles()
+        print(pose)
+        print(self.head)
 
     def head_selected(self):
         print("Head selected")
