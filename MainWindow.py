@@ -100,7 +100,7 @@ class MainWindow:
         self.rotate_image_button = Button(root, text="Rotate image", command=self.rotate_image, height=3, width=20, bg="black", fg="white")
         self.rotate_image_button.place(x=self.w / 1.1, y=self.h / 1.3)
 
-        self.prev_pose_button = Button(root, text="Get prev pose", command=self.get_previous_pose(), height=3, width=20,
+        self.prev_pose_button = Button(root, text="Get prev pose", command=self.get_previous_pose, height=3, width=20,
                                           bg="white", fg="black")
         self.prev_pose_button.place(x=self.w / 1.2, y=self.h / 1.3)
 
@@ -262,6 +262,7 @@ class MainWindow:
 
     def get_previous_pose(self):
         self.get_json()
+        print('Getting previous pose.')
         try:
             print("image found")
             self.head['x'] = self.json_dict[f'image{self.index-1}']['head']['x']
@@ -295,10 +296,87 @@ class MainWindow:
             self.torso['x'] = self.json_dict[f'image{self.index-1}']['torso']['x']
             self.torso['y'] = self.json_dict[f'image{self.index-1}']['torso']['y']
             self.set_button_text()
+            self.update_circles()
         except KeyError:
             print("Image not found, setting coordinates to 0,0")
             self.set_coordinates_zero()
             self.set_button_text()
+
+    def move_pose_down(self):
+        self.head['y'] += 1
+        self.left_ankle['y'] += 1
+        self.left_elbow['y'] += 1
+        self.left_hip['y'] += 1
+        self.left_knee['y'] += 1
+        self.left_shoulder['y'] += 1
+        self.left_wrist['y'] += 1
+        self.neck['y'] += 1
+        self.right_ankle['y'] += 1
+        self.right_elbow['y'] += 1
+        self.right_hip['y'] += 1
+        self.right_knee['y'] += 1
+        self.right_shoulder['y'] += 1
+        self.right_wrist['y'] += 1
+        self.torso['y'] += 1
+        self.update_circles()
+        self.set_button_text()
+
+    def move_pose_up(self):
+        self.head['y'] -= 1
+        self.left_ankle['y'] -= 1
+        self.left_elbow['y'] -= 1
+        self.left_hip['y'] -= 1
+        self.left_knee['y'] -= 1
+        self.left_shoulder['y'] -= 1
+        self.left_wrist['y'] -= 1
+        self.neck['y'] -= 1
+        self.right_ankle['y'] -= 1
+        self.right_elbow['y'] -= 1
+        self.right_hip['y'] -= 1
+        self.right_knee['y'] -= 1
+        self.right_shoulder['y'] -= 1
+        self.right_wrist['y'] -= 1
+        self.torso['y'] -= 1
+        self.update_circles()
+        self.set_button_text()
+
+    def move_pose_left(self):
+        self.head['x'] -= 1
+        self.left_ankle['x'] -= 1
+        self.left_elbow['x'] -= 1
+        self.left_hip['x'] -= 1
+        self.left_knee['x'] -= 1
+        self.left_shoulder['x'] -= 1
+        self.left_wrist['x'] -= 1
+        self.neck['x'] -= 1
+        self.right_ankle['x'] -= 1
+        self.right_elbow['x'] -= 1
+        self.right_hip['x'] -= 1
+        self.right_knee['x'] -= 1
+        self.right_shoulder['x'] -= 1
+        self.right_wrist['x'] -= 1
+        self.torso['x'] -= 1
+        self.update_circles()
+        self.set_button_text()
+
+    def move_pose_right(self):
+        self.head['x'] += 1
+        self.left_ankle['x'] += 1
+        self.left_elbow['x'] += 1
+        self.left_hip['x'] += 1
+        self.left_knee['x'] += 1
+        self.left_shoulder['x'] += 1
+        self.left_wrist['x'] += 1
+        self.neck['x'] += 1
+        self.right_ankle['x'] += 1
+        self.right_elbow['x'] += 1
+        self.right_hip['x'] += 1
+        self.right_knee['x'] += 1
+        self.right_shoulder['x'] += 1
+        self.right_wrist['x'] += 1
+        self.torso['x'] += 1
+        self.update_circles()
+        self.set_button_text()
 
     def print_pos(self, event):  # Print mouse position on image to the console when mouse is clicked
         x = int(event.x / (1000 / 224))  # normalize the coordinates between 0 and 224
@@ -474,6 +552,14 @@ class MainWindow:
                 self.update_joint_text()
         elif event.char == 'g':
             self.get_previous_pose()
+        elif event.char == 'j':
+            self.move_pose_left()
+        elif event.char == 'l':
+            self.move_pose_right()
+        elif event.char == 'i':
+            self.move_pose_up()
+        elif event.char == 'k':
+            self.move_pose_down()
 
     def head_selected(self):
         print("Head selected")
