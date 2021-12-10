@@ -14,11 +14,11 @@ class MainWindow:
         root.resizable(width=True, height=True)
         root.configure(background='#3A3A3A')
 
-        self.img_dir = 'C:/Users/William/Documents/C3P0 datasets/greenscreen/resized/'              # Set the directory for the images
+        self.img_dir = 'greenscreen2_images_resized_1000/'                                          # Set the directory for the images
         self.images = os.listdir(self.img_dir)                                                      # Get the list of images in the directory
         self.index = 0                                                                              # Set the index to 0
 
-        self.json_dir = 'C:/Users/William/Documents/git/C3P0-python/d2.json'                        # Set the directory for the json file
+        self.json_dir = 'd2.json'                                                                   # Set the directory for the json file
         self.json_dict = {}                                                                         # Create a dictionary to store the json data
         self.json_pose = {}
         self.get_json()                                                                             # Get the json data
@@ -565,36 +565,36 @@ class MainWindow:
 
     def set_predicted_pose(self):
         pose = predict_pose(f'{self.img_dir}{self.image}')
-        self.head['x'] = pose[0][0][0]
-        self.head['y'] = pose[0][0][1]
-        self.left_ankle['x'] = pose[0][1][0]
-        self.left_ankle['y'] = pose[0][1][1]
-        self.left_elbow['x'] = pose[0][2][0]
-        self.left_elbow['y'] = pose[0][2][1]
-        self.left_hip['x'] = pose[0][3][0]
-        self.left_hip['y'] = pose[0][3][1]
-        self.left_knee['x'] = pose[0][4][0]
-        self.left_knee['y'] = pose[0][4][1]
-        self.left_shoulder['x'] = pose[0][5][0]
-        self.left_shoulder['y'] = pose[0][5][1]
-        self.left_wrist['x'] = pose[0][6][0]
-        self.left_wrist['y'] = pose[0][6][1]
-        self.neck['x'] = pose[0][7][0]
-        self.neck['y'] = pose[0][7][1]
-        self.right_ankle['x'] = pose[0][8][0]
-        self.right_ankle['y'] = pose[0][8][1]
-        self.right_elbow['x'] = pose[0][9][0]
-        self.right_elbow['y'] = pose[0][9][1]
-        self.right_hip['x'] = pose[0][10][0]
-        self.right_hip['y'] = pose[0][10][1]
-        self.right_knee['x'] = pose[0][11][0]
-        self.right_knee['y'] = pose[0][11][1]
-        self.right_shoulder['x'] = pose[0][12][0]
-        self.right_shoulder['y'] = pose[0][12][1]
-        self.right_wrist['x'] = pose[0][13][0]
-        self.right_wrist['y'] = pose[0][13][1]
-        self.torso['x'] = pose[0][14][0]
-        self.torso['y'] = pose[0][14][1]
+        self.head['x'] = int(pose[0][0][0])
+        self.head['y'] = int(pose[0][0][1])
+        self.left_ankle['x'] = int(pose[0][1][0])
+        self.left_ankle['y'] = int(pose[0][1][1])
+        self.left_elbow['x'] = int(pose[0][2][0])
+        self.left_elbow['y'] = int(pose[0][2][1])
+        self.left_hip['x'] = int(pose[0][3][0])
+        self.left_hip['y'] = int(pose[0][3][1])
+        self.left_knee['x'] = int(pose[0][4][0])
+        self.left_knee['y'] = int(pose[0][4][1])
+        self.left_shoulder['x'] = int(pose[0][5][0])
+        self.left_shoulder['y'] = int(pose[0][5][1])
+        self.left_wrist['x'] = int(pose[0][6][0])
+        self.left_wrist['y'] = int(pose[0][6][1])
+        self.neck['x'] = int(pose[0][7][0])
+        self.neck['y'] = int(pose[0][7][1])
+        self.right_ankle['x'] = int(pose[0][8][0])
+        self.right_ankle['y'] = int(pose[0][8][1])
+        self.right_elbow['x'] = int(pose[0][9][0])
+        self.right_elbow['y'] = int(pose[0][9][1])
+        self.right_hip['x'] = int(pose[0][10][0])
+        self.right_hip['y'] = int(pose[0][10][1])
+        self.right_knee['x'] = int(pose[0][11][0])
+        self.right_knee['y'] = int(pose[0][11][1])
+        self.right_shoulder['x'] = int(pose[0][12][0])
+        self.right_shoulder['y'] = int(pose[0][12][1])
+        self.right_wrist['x'] = int(pose[0][13][0])
+        self.right_wrist['y'] = int(pose[0][13][1])
+        self.torso['x'] = int(pose[0][14][0])
+        self.torso['y'] = int(pose[0][14][1])
         self.set_button_text()
         self.update_circles()
         print(pose)

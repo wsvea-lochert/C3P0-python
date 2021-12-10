@@ -112,3 +112,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+/greenscreen2_images_resized_1000

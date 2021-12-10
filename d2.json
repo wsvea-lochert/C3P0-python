@@ -1,3 +1,128 @@
 {
-
+   "image0": {
+      "head": {
+         "x": 113,
+         "y": 46
+      },
+      "image": "IMG_20211102_204214_BURST022.jpg",
+      "left_ankle": {
+         "x": 92,
+         "y": 159
+      },
+      "left_elbow": {
+         "x": 72,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 105,
+         "y": 105
+      },
+      "left_knee": {
+         "x": 108,
+         "y": 137
+      },
+      "left_shoulder": {
+         "x": 74,
+         "y": 39
+      },
+      "left_wrist": {
+         "x": 23,
+         "y": 24
+      },
+      "neck": {
+         "x": 109,
+         "y": 53
+      },
+      "right_ankle": {
+         "x": 94,
+         "y": 173
+      },
+      "right_elbow": {
+         "x": 114,
+         "y": 83
+      },
+      "right_hip": {
+         "x": 115,
+         "y": 108
+      },
+      "right_knee": {
+         "x": 112,
+         "y": 141
+      },
+      "right_shoulder": {
+         "x": 121,
+         "y": 61
+      },
+      "right_writs": {
+         "x": 122,
+         "y": 97
+      },
+      "torso": {
+         "x": 105,
+         "y": 104
+      }
+   },
+   "image1": {
+      "head": {
+         "x": 113,
+         "y": 46
+      },
+      "image": "IMG_20211102_205024_BURST018.jpg",
+      "left_ankle": {
+         "x": 92,
+         "y": 159
+      },
+      "left_elbow": {
+         "x": 72,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 105,
+         "y": 105
+      },
+      "left_knee": {
+         "x": 108,
+         "y": 137
+      },
+      "left_shoulder": {
+         "x": 74,
+         "y": 39
+      },
+      "left_wrist": {
+         "x": 23,
+         "y": 24
+      },
+      "neck": {
+         "x": 109,
+         "y": 53
+      },
+      "right_ankle": {
+         "x": 94,
+         "y": 173
+      },
+      "right_elbow": {
+         "x": 114,
+         "y": 83
+      },
+      "right_hip": {
+         "x": 115,
+         "y": 108
+      },
+      "right_knee": {
+         "x": 112,
+         "y": 141
+      },
+      "right_shoulder": {
+         "x": 121,
+         "y": 61
+      },
+      "right_writs": {
+         "x": 122,
+         "y": 97
+      },
+      "torso": {
+         "x": 105,
+         "y": 104
+      }
+   }
 }
