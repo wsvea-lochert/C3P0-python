@@ -2,7 +2,7 @@ import os
 import json
 from tkinter import *
 from PIL import ImageTk, Image
-from predict_pose import predict_pose
+from predict_pose import predict_pose, predict_pose_movenet
 
 
 class MainWindow:
@@ -16,9 +16,11 @@ class MainWindow:
 
         self.img_dir = 'greenscreen2_images_resized_1000/'                                          # Set the directory for the images
         self.images = os.listdir(self.img_dir)                                                      # Get the list of images in the directory
+        # sort self.images
+        self.images.sort()
         self.index = 0                                                                              # Set the index to 0
 
-        self.json_dir = 'd2.json'                                                                   # Set the directory for the json file
+        self.json_dir = 'dataset2.json'                                                             # Set the directory for the json file
         self.json_dict = {}                                                                         # Create a dictionary to store the json data
         self.json_pose = {}
         self.get_json()                                                                             # Get the json data
@@ -36,12 +38,15 @@ class MainWindow:
         self.canvas.bind("<Key>", self.print_pos)                                                        # bind key press to print position
         self.canvas.bind("<Button-1>", self.print_pos)                                                   # bind mouse click to print position
 
-        # TODO: Button section
+        # Button section
         self.next_button = Button(root, text="Next", command=self.next_data, height=3, width=20, bg="#11EA9B", fg="black")
         self.next_button.place(x=self.w / 2, y=self.h / 50)
 
         self.prev_button = Button(root, text="Prev", command=self.prev_data, height=3, width=20, bg="#EAC611", fg="black")
         self.prev_button.place(x=self.w / 2.5, y=self.h / 50)
+
+        self.zero_out = Button(root, text="Zero current", command=self.zero_current, height=3, width=20, bg="#EAC611", fg="black")
+        self.zero_out.place(x=self.w / 3.4, y=self.h / 50)
 
         #  All the data points needed for our dataset.
         self.head = {'x': 0, 'y': 0}            # 0
@@ -63,6 +68,20 @@ class MainWindow:
 
         self.selected_joint = 0                 # The current selected joint, change the number between 0 and 14 to change the selected joint.
 
+        # coordinates used to draw a ruler for angles in hips and shoulders.
+        self.rp1 = {'x': 0, 'y': 0}
+        self.rp2 = {'x': 0, 'y': 0}
+        # TODO: Draw a line between RP1 and RP2 on canvas
+        """ 
+        1. Draw a line between rp1 and rp2 if they are not 0,0 & 0,0.
+        2. If either of the points are in 0,0 do NOT draw them.
+        3. Only drawable when they are selected with buttons or adjusted with specific buttons.
+        4. Add a zero function for both points with one click.
+        5. 
+        """
+        # TODO: implement posenet for assisting in labeling?
+
+        # More buttons.
         self.head_button = Button(root, text=f"Head x: {self.head['x']} y:{self.head['y']}", command=self.head_selected, height=2, width=20, bg='#B63DC7', fg='white')
         self.head_button.place(x=self.w / 2.5, y=self.h / 13)
         self.left_ankle_button = Button(root, text=f"Left Ankle x: {self.left_ankle['x']} y: {self.left_ankle['y']}", command=self.left_ankle_selected, height=2, width=20, bg='#3D84C7', fg='white')
@@ -80,29 +99,29 @@ class MainWindow:
         self.neck_button = Button(root, text=f"Neck x: {self.neck['x']} y: {self.neck['y']}", command=self.neck_selected, height=2, width=20, bg='#B63DC7', fg='white')
         self.neck_button.place(x=self.w / 2, y=self.h / 13)
         self.right_ankle_button = Button(root, text=f"Right Ankle x: {self.right_ankle['x']} y: {self.right_ankle['y']}", command=self.right_ankle_selected, height=2, width=20, bg="#C7463D", fg='white')
-        self.right_ankle_button.place(x=self.w / 1.4, y=self.h / 1.7)
+        self.right_ankle_button.place(x=self.w / 1.3, y=self.h / 1.7)
         self.right_elbow_button = Button(root, text=f"Right Elbow x: {self.right_elbow['x']} y: {self.right_elbow['y']}", command=self.right_elbow_selected, height=2, width=20, bg="#C7463D", fg='white')
-        self.right_elbow_button.place(x=self.w / 1.4, y=self.h / 3.5)
+        self.right_elbow_button.place(x=self.w / 1.3, y=self.h / 3.5)
         self.right_hip_button = Button(root, text=f"Right Hip x: {self.right_hip['x']} y: {self.right_hip['y']}", command=self.right_hip_selected, height=2, width=20, bg="#C7463D", fg='white')
-        self.right_hip_button.place(x=self.w / 1.4, y=self.h / 2.5)
+        self.right_hip_button.place(x=self.w / 1.3, y=self.h / 2.5)
         self.right_knee_button = Button(root, text=f"Right Knee x: {self.right_knee['x']} y: {self.right_knee['y']}", command=self.right_knee_selected, height=2, width=20, bg="#C7463D", fg='white')
-        self.right_knee_button.place(x=self.w / 1.4, y=self.h / 2)
+        self.right_knee_button.place(x=self.w / 1.3, y=self.h / 2)
         self.right_shoulder_button = Button(root, text=f"Right Shoulder x: {self.right_shoulder['x']} y: {self.right_shoulder['y']}", command=self.right_shoulder_selected, height=2, width=20, bg="#C7463D", fg='white')
-        self.right_shoulder_button.place(x=self.w / 1.4, y=self.h / 5)
+        self.right_shoulder_button.place(x=self.w / 1.3, y=self.h / 5)
         self.right_writs_button = Button(root, text=f"Right Writs x: {self.right_wrist['x']} y: {self.right_wrist['y']}", command=self.right_wrist_selected, height=2, width=20, bg="#C7463D", fg='white')
-        self.right_writs_button.place(x=self.w / 1.4, y=self.h / 3)
+        self.right_writs_button.place(x=self.w / 1.3, y=self.h / 3)
         self.torso_button = Button(root, text=f"Torso x: {self.torso['x']} y: {self.torso['y']}", command=self.torso_selected, height=2, width=20, bg='#B63DC7', fg='white')
         self.torso_button.place(x=self.w / 2.2, y=self.h / 1.2)
 
         self.save_button = Button(root, text="Save", command=self.save_pose, height=3, width=20, bg="green", fg="white")
-        self.save_button.place(x=self.w / 1.4, y=self.h / 1.3)
+        self.save_button.place(x=self.w / 1.3, y=self.h / 1.3)
 
         self.rotate_image_button = Button(root, text="Rotate image", command=self.rotate_image, height=3, width=20, bg="black", fg="white")
         self.rotate_image_button.place(x=self.w / 1.1, y=self.h / 1.3)
 
         self.prev_pose_button = Button(root, text="Get prev pose", command=self.get_previous_pose, height=3, width=20,
                                           bg="white", fg="black")
-        self.prev_pose_button.place(x=self.w / 1.2, y=self.h / 1.3)
+        self.prev_pose_button.place(x=self.w / 1.1, y=self.h / 1.4)
 
         self.update_joints_from_json()
         """draw a circle on self.canvas"""
@@ -136,6 +155,57 @@ class MainWindow:
         self.index_text = Label(root, text=f"Current index {self.index} / {self.images.__len__()}", font=("Helvetica", 16), bg='#B63DC7', fg='white')
         self.index_text.place(x=200, y=200)
 
+    def zero_current(self):
+        # set the current joint to 0, 0 and update button text, circles
+        if self.selected_joint == 0:
+            self.head['x'] = 0
+            self.head['y'] = 0
+        elif self.selected_joint == 1:
+            self.left_ankle['x'] = 0
+            self.left_ankle['y'] = 0
+        elif self.selected_joint == 2:
+            self.left_elbow['x'] = 0
+            self.left_elbow['y'] = 0
+        elif self.selected_joint == 3:
+            self.left_hip['x'] = 0
+            self.left_hip['y'] = 0
+        elif self.selected_joint == 4:
+            self.left_knee['x'] = 0
+            self.left_knee['y'] = 0
+        elif self.selected_joint == 5:
+            self.left_shoulder['x'] = 0
+            self.left_shoulder['y'] = 0
+        elif self.selected_joint == 6:
+            self.left_wrist['x'] = 0
+            self.left_wrist['y'] = 0
+        elif self.selected_joint == 7:
+            self.neck['x'] = 0
+            self.neck['y'] = 0
+        elif self.selected_joint == 8:
+            self.right_ankle['x'] = 0
+            self.right_ankle['y'] = 0
+        elif self.selected_joint == 9:
+            self.right_elbow['x'] = 0
+            self.right_elbow['y'] = 0
+        elif self.selected_joint == 10:
+            self.right_hip['x'] = 0
+            self.right_hip['y'] = 0
+        elif self.selected_joint == 11:
+            self.right_knee['x'] = 0
+            self.right_knee['y'] = 0
+        elif self.selected_joint == 12:
+            self.right_shoulder['x'] = 0
+            self.right_shoulder['y'] = 0
+        elif self.selected_joint == 13:
+            self.right_wrist['x'] = 0
+            self.right_wrist['y'] = 0
+        elif self.selected_joint == 14:
+            self.torso['x'] = 0
+            self.torso['y'] = 0
+
+        self.set_button_text()
+        self.update_circles()
+
     def update_joint_text(self):
         """Updates the currently selected joint text"""
         if self.joint_names[self.selected_joint].__contains__("left"):
@@ -149,9 +219,11 @@ class MainWindow:
         if self.index == self.images.__len__() - 1:
             print('this is the last image')
             self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
+            self.image = self.images[self.index]
         else:
             print("Next pressed")
             self.index = self.index + 1
+            self.image = self.images[self.index]
             self.canvas.itemconfig(self.image_on_canvas, image=self.photoImages[self.index])
             self.update_joints_from_json()
             self.set_button_text()
@@ -165,9 +237,11 @@ class MainWindow:
             print('This is the first image')
             self.canvas.itemconfig(self.image_on_canvas, image=self.photoImages[self.index])
             self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
+            self.image = self.images[self.index]
         else:
             print("Prev pressed")
             self.index = self.index - 1
+            self.image = self.images[self.index]
             self.update_joints_from_json()
             self.set_button_text()
             self.update_circles()
@@ -301,6 +375,142 @@ class MainWindow:
             print("Image not found, setting coordinates to 0,0")
             self.set_coordinates_zero()
             self.set_button_text()
+
+    def move_current_down(self):
+        if self.selected_joint == 0:
+            self.head['y'] += 1
+        elif self.selected_joint == 1:
+            self.left_ankle['y'] += 1
+        elif self.selected_joint == 2:
+            self.left_elbow['y'] += 1
+        elif self.selected_joint == 3:
+            self.left_hip['y'] += 1
+        elif self.selected_joint == 4:
+            self.left_knee['y'] += 1
+        elif self.selected_joint == 5:
+            self.left_shoulder['y'] += 1
+        elif self.selected_joint == 6:
+            self.left_wrist['y'] += 1
+        elif self.selected_joint == 7:
+            self.neck['y'] += 1
+        elif self.selected_joint == 8:
+            self.right_ankle['y'] += 1
+        elif self.selected_joint == 9:
+            self.right_elbow['y'] += 1
+        elif self.selected_joint == 10:
+            self.right_hip['y'] += 1
+        elif self.selected_joint == 11:
+            self.right_knee['y'] += 1
+        elif self.selected_joint == 12:
+            self.right_shoulder['y'] +=1
+        elif self.selected_joint == 13:
+            self.right_wrist['y'] += 1
+        elif self.selected_joint == 14:
+            self.torso['y'] += 1
+        self.update_circles()
+        self.set_button_text()
+
+    def move_current_up(self):
+        if self.selected_joint == 0:
+            self.head['y'] -= 1
+        elif self.selected_joint == 1:
+            self.left_ankle['y'] -= 1
+        elif self.selected_joint == 2:
+            self.left_elbow['y'] -= 1
+        elif self.selected_joint == 3:
+            self.left_hip['y'] -= 1
+        elif self.selected_joint == 4:
+            self.left_knee['y'] -= 1
+        elif self.selected_joint == 5:
+            self.left_shoulder['y'] -= 1
+        elif self.selected_joint == 6:
+            self.left_wrist['y'] -= 1
+        elif self.selected_joint == 7:
+            self.neck['y'] -= 1
+        elif self.selected_joint == 8:
+            self.right_ankle['y'] -= 1
+        elif self.selected_joint == 9:
+            self.right_elbow['y'] -= 1
+        elif self.selected_joint == 10:
+            self.right_hip['y'] -= 1
+        elif self.selected_joint == 11:
+            self.right_knee['y'] -= 1
+        elif self.selected_joint == 12:
+            self.right_shoulder['y'] -= 1
+        elif self.selected_joint == 13:
+            self.right_wrist['y'] -= 1
+        elif self.selected_joint == 14:
+            self.torso['y'] -= 1
+        self.update_circles()
+        self.set_button_text()
+
+    def move_current_left(self):
+        if self.selected_joint == 0:
+            self.head['x'] -= 1
+        elif self.selected_joint == 1:
+            self.left_ankle['x'] -= 1
+        elif self.selected_joint == 2:
+            self.left_elbow['x'] -= 1
+        elif self.selected_joint == 3:
+            self.left_hip['x'] -= 1
+        elif self.selected_joint == 4:
+            self.left_knee['x'] -= 1
+        elif self.selected_joint == 5:
+            self.left_shoulder['x'] -= 1
+        elif self.selected_joint == 6:
+            self.left_wrist['x'] -= 1
+        elif self.selected_joint == 7:
+            self.neck['x'] -= 1
+        elif self.selected_joint == 8:
+            self.right_ankle['x'] -= 1
+        elif self.selected_joint == 9:
+            self.right_elbow['x'] -= 1
+        elif self.selected_joint == 10:
+            self.right_hip['x'] -= 1
+        elif self.selected_joint == 11:
+            self.right_knee['x'] -= 1
+        elif self.selected_joint == 12:
+            self.right_shoulder['x'] -= 1
+        elif self.selected_joint == 13:
+            self.right_wrist['x'] -= 1
+        elif self.selected_joint == 14:
+            self.torso['x'] -= 1
+        self.update_circles()
+        self.set_button_text()
+
+    def move_current_right(self):
+        if self.selected_joint == 0:
+            self.head['x'] += 1
+        elif self.selected_joint == 1:
+            self.left_ankle['x'] += 1
+        elif self.selected_joint == 2:
+            self.left_elbow['x'] += 1
+        elif self.selected_joint == 3:
+            self.left_hip['x'] += 1
+        elif self.selected_joint == 4:
+            self.left_knee['x'] += 1
+        elif self.selected_joint == 5:
+            self.left_shoulder['x'] += 1
+        elif self.selected_joint == 6:
+            self.left_wrist['x'] += 1
+        elif self.selected_joint == 7:
+            self.neck['x'] += 1
+        elif self.selected_joint == 8:
+            self.right_ankle['x'] += 1
+        elif self.selected_joint == 9:
+            self.right_elbow['x'] += 1
+        elif self.selected_joint == 10:
+            self.right_hip['x'] += 1
+        elif self.selected_joint == 11:
+            self.right_knee['x'] += 1
+        elif self.selected_joint == 12:
+            self.right_shoulder['x'] += 1
+        elif self.selected_joint == 13:
+            self.right_wrist['x'] += 1
+        elif self.selected_joint == 14:
+            self.torso['x'] += 1
+        self.update_circles()
+        self.set_button_text()
 
     def move_pose_down(self):
         self.head['y'] += 1
@@ -552,53 +762,88 @@ class MainWindow:
                 self.update_joint_text()
         elif event.char == 'g':
             self.get_previous_pose()
-        elif event.char == 'j':
+        elif event.char == '1':
             self.move_pose_left()
-        elif event.char == 'l':
+        elif event.char == '4':
             self.move_pose_right()
-        elif event.char == 'i':
+        elif event.char == '2':
             self.move_pose_up()
-        elif event.char == 'k':
+        elif event.char == '3':
             self.move_pose_down()
         elif event.char == 'f':
             self.set_predicted_pose()
+        elif event.char == 'z':
+            self.zero_current()
+        elif event.char == 'k':
+            self.move_current_down()
+        elif event.char == 'i':
+            self.move_current_up()
+        elif event.char == 'j':
+            self.move_current_left()
+        elif event.char == 'l':
+            self.move_current_right()
+        elif event.char == 'v':
+            self.switch_sides()
 
-    def set_predicted_pose(self):
-        pose = predict_pose(f'{self.img_dir}{self.image}')
-        self.head['x'] = int(pose[0][0][0])
-        self.head['y'] = int(pose[0][0][1])
-        self.left_ankle['x'] = int(pose[0][1][0])
-        self.left_ankle['y'] = int(pose[0][1][1])
-        self.left_elbow['x'] = int(pose[0][2][0])
-        self.left_elbow['y'] = int(pose[0][2][1])
-        self.left_hip['x'] = int(pose[0][3][0])
-        self.left_hip['y'] = int(pose[0][3][1])
-        self.left_knee['x'] = int(pose[0][4][0])
-        self.left_knee['y'] = int(pose[0][4][1])
-        self.left_shoulder['x'] = int(pose[0][5][0])
-        self.left_shoulder['y'] = int(pose[0][5][1])
-        self.left_wrist['x'] = int(pose[0][6][0])
-        self.left_wrist['y'] = int(pose[0][6][1])
-        self.neck['x'] = int(pose[0][7][0])
-        self.neck['y'] = int(pose[0][7][1])
-        self.right_ankle['x'] = int(pose[0][8][0])
-        self.right_ankle['y'] = int(pose[0][8][1])
-        self.right_elbow['x'] = int(pose[0][9][0])
-        self.right_elbow['y'] = int(pose[0][9][1])
-        self.right_hip['x'] = int(pose[0][10][0])
-        self.right_hip['y'] = int(pose[0][10][1])
-        self.right_knee['x'] = int(pose[0][11][0])
-        self.right_knee['y'] = int(pose[0][11][1])
-        self.right_shoulder['x'] = int(pose[0][12][0])
-        self.right_shoulder['y'] = int(pose[0][12][1])
-        self.right_wrist['x'] = int(pose[0][13][0])
-        self.right_wrist['y'] = int(pose[0][13][1])
-        self.torso['x'] = int(pose[0][14][0])
-        self.torso['y'] = int(pose[0][14][1])
+    def switch_sides(self):
+        """swap left and right side coordinates"""
+        self.left_shoulder, self.right_shoulder = self.right_shoulder, self.left_shoulder
+        self.left_elbow, self.right_elbow = self.right_elbow, self.left_elbow
+        self.left_wrist, self.right_wrist = self.right_wrist, self.left_wrist
+        self.left_hip, self.right_hip = self.right_hip, self.left_hip
+        self.left_knee, self.right_knee = self.right_knee, self.left_knee
+        self.left_ankle, self.right_ankle = self.right_ankle, self.left_ankle
+
+
         self.set_button_text()
         self.update_circles()
+
+
+    def set_predicted_pose(self):
+        """"nose, left eye, right eye, left ear, right ear, left shoulder, right shoulder, left elbow, right elbow,
+        left wrist, right wrist, left hip, right hip, left knee, right knee, left ankle, right ankle"""
+        pose = predict_pose_movenet(f'{self.img_dir}{self.image}')
+        """unpack pose"""
         print(pose)
-        print(self.head)
+        print(pose[0][0][0][0])
+        print(pose[0][0][1][0])
+        self.head['x'] = int(224 - (pose[0][0][0][0]*224))
+        self.head['y'] = int(pose[0][0][0][1]*224)
+        self.left_ankle['x'] = int(224 - (pose[0][0][15][0]*224))
+        self.left_ankle['y'] = int(pose[0][0][15][1]*224)
+        self.left_elbow['x'] = int(224 - (pose[0][0][7][0]*224))
+        self.left_elbow['y'] = int(pose[0][0][7][1]*224)
+        self.left_hip['x'] = int(224 - (pose[0][0][11][0]*224))
+        self.left_hip['y'] = int(pose[0][0][11][1]*224)
+        self.left_knee['x'] = int(224 - (pose[0][0][13][0]*224))
+        self.left_knee['y'] = int(pose[0][0][13][1]*224)
+        self.left_shoulder['x'] = int(224 - (pose[0][0][5][0]*224))
+        self.left_shoulder['y'] = int(pose[0][0][5][1]*224)
+        self.left_wrist['x'] = int(224 - (pose[0][0][9][0]*224))
+        self.left_wrist['y'] = int(pose[0][0][9][1]*224)
+        # self.neck['x'] = int(pose[0][7][0])
+        # self.neck['y'] = int(pose[0][7][1])
+        self.right_ankle['x'] = int(224 - (pose[0][0][16][0]*224))
+        self.right_ankle['y'] = int(pose[0][0][16][1]*224)
+        self.right_elbow['x'] = int(224 - (pose[0][0][8][0]*224))
+        self.right_elbow['y'] = int(pose[0][0][8][1]*224)
+        self.right_hip['x'] = int(224 - (pose[0][0][12][0]*224))
+        self.right_hip['y'] = int(pose[0][0][12][1]*224)
+        self.right_knee['x'] = int(224 - (pose[0][0][14][0]*224))
+        self.right_knee['y'] = int(pose[0][0][14][1]*224)
+        self.right_shoulder['x'] = int(224 - (pose[0][0][6][0]*224))
+        self.right_shoulder['y'] = int(pose[0][0][6][1]*224)
+        self.right_wrist['x'] = int(224 - (pose[0][0][10][0]*224))
+        self.right_wrist['y'] = int(pose[0][0][10][1]*224)
+        """flip all coordinates"""
+
+        # self.head['y'] = 224 - self.head['y']
+        # self.torso['x'] = int(pose[0][14][0])
+        # self.torso['y'] = int(pose[0][14][1])
+        self.set_button_text()
+        self.update_circles()
+        # print(pose)
+        # print(self.head)
 
     def head_selected(self):
         print("Head selected")
