@@ -14,7 +14,7 @@ class MainWindow:
         root.resizable(width=True, height=True)
         root.configure(background='#3A3A3A')
 
-        self.img_dir = 'greenscreen2_images_resized_1000/'                                          # Set the directory for the images
+        self.img_dir = 'C:/Users/William/Documents/C3P0 datasets/dataset2/greenscreen2_images_resized_1000/'                                          # Set the directory for the images
         self.images = os.listdir(self.img_dir)                                                      # Get the list of images in the directory
         # sort self.images
         self.images.sort()
@@ -740,27 +740,27 @@ class MainWindow:
 
     def key_pressed(self, event):
         print(f"Key pressed: {event.char}")
-        if event.char == 's':
+        if event.char == 'r' or event.char == ',':
             self.save_pose()
-        elif event.char == 'e':
+        elif event.char == 'e' or event.char == 'o':
             self.next_data()
-        elif event.char == 'q':
+        elif event.char == 'q' or event.char == 'u':
             self.prev_data()
-        elif event.char == 'a':
+        elif event.char == 'j':
             if self.selected_joint == 0:
                 self.selected_joint = 14
                 self.update_joint_text()
             else:
                 self.selected_joint = self.selected_joint - 1
                 self.update_joint_text()
-        elif event.char == 'd':
+        elif event.char == 'l':
             if self.selected_joint == 14:
                 self.selected_joint = 0
                 self.update_joint_text()
             else:
                 self.selected_joint = self.selected_joint + 1
                 self.update_joint_text()
-        elif event.char == 'g':
+        elif event.char == 'g' or event.char == 'p':
             self.get_previous_pose()
         elif event.char == '1':
             self.move_pose_left()
@@ -774,13 +774,13 @@ class MainWindow:
             self.set_predicted_pose()
         elif event.char == 'z':
             self.zero_current()
-        elif event.char == 'k':
+        elif event.char == 's':
             self.move_current_down()
-        elif event.char == 'i':
+        elif event.char == 'w':
             self.move_current_up()
-        elif event.char == 'j':
+        elif event.char == 'a':
             self.move_current_left()
-        elif event.char == 'l':
+        elif event.char == 'd':
             self.move_current_right()
         elif event.char == 'v':
             self.switch_sides()
