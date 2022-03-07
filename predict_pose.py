@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 import tensorflow_hub as hub
 
-model = tf.keras.models.load_model('models/resnet_trainable_model')  # loading our model.
-model = hub.load('https://tfhub.dev/google/movenet/singlepose/lightning/4')
+# model = tf.keras.models.load_model('models/resnet_trainable_model')  # loading our model.
+model = hub.load("https://tfhub.dev/google/movenet/singlepose/thunder/4")
 movenet = model.signatures['serving_default']
 
 
@@ -25,7 +25,7 @@ def predict_pose_movenet(path):
     image = tf.compat.v1.image.decode_jpeg(image)
     image = tf.expand_dims(image, axis=0)
     # Resize and pad the image to keep the aspect ratio and fit the expected size.
-    image = tf.cast(tf.image.resize_with_pad(image, 192, 192), dtype=tf.int32)
+    image = tf.cast(tf.image.resize_with_pad(image, 256, 256), dtype=tf.int32)
 
 
 
