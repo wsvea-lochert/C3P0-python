@@ -155338,14 +155338,14 @@
       },
       "right_hip": {
          "x": 122,
-         "y": 80
+         "y": 81
       },
       "right_knee": {
          "x": 99,
          "y": 104
       },
       "right_shoulder": {
-         "x": 126,
+         "x": 125,
          "y": 44
       },
       "right_writs": {
@@ -155354,13 +155354,13 @@
       },
       "torso": {
          "x": 132,
-         "y": 82
+         "y": 83
       }
    },
    "image2466": {
       "head": {
-         "x": 151,
-         "y": 29
+         "x": 152,
+         "y": 28
       },
       "image": "IMG_20211102_204437_BURST066.jpg",
       "left_ankle": {
@@ -155368,8 +155368,8 @@
          "y": 159
       },
       "left_elbow": {
-         "x": 168,
-         "y": 73
+         "x": 170,
+         "y": 72
       },
       "left_hip": {
          "x": 141,
@@ -155380,16 +155380,16 @@
          "y": 124
       },
       "left_shoulder": {
-         "x": 162,
-         "y": 49
+         "x": 164,
+         "y": 47
       },
       "left_wrist": {
-         "x": 176,
-         "y": 95
+         "x": 178,
+         "y": 94
       },
       "neck": {
-         "x": 144,
-         "y": 40
+         "x": 145,
+         "y": 39
       },
       "right_ankle": {
          "x": 105,
@@ -155409,7 +155409,7 @@
       },
       "right_shoulder": {
          "x": 123,
-         "y": 41
+         "y": 40
       },
       "right_writs": {
          "x": 88,
@@ -155417,7 +155417,2275 @@
       },
       "torso": {
          "x": 130,
+         "y": 80
+      }
+   },
+   "image2467": {
+      "head": {
+         "x": 151,
+         "y": 25
+      },
+      "image": "IMG_20211102_204437_BURST067.jpg",
+      "left_ankle": {
+         "x": 128,
+         "y": 157
+      },
+      "left_elbow": {
+         "x": 170,
+         "y": 70
+      },
+      "left_hip": {
+         "x": 141,
          "y": 79
+      },
+      "left_knee": {
+         "x": 136,
+         "y": 123
+      },
+      "left_shoulder": {
+         "x": 163,
+         "y": 45
+      },
+      "left_wrist": {
+         "x": 178,
+         "y": 92
+      },
+      "neck": {
+         "x": 145,
+         "y": 37
+      },
+      "right_ankle": {
+         "x": 106,
+         "y": 135
+      },
+      "right_elbow": {
+         "x": 94,
+         "y": 35
+      },
+      "right_hip": {
+         "x": 119,
+         "y": 76
+      },
+      "right_knee": {
+         "x": 97,
+         "y": 97
+      },
+      "right_shoulder": {
+         "x": 121,
+         "y": 38
+      },
+      "right_writs": {
+         "x": 87,
+         "y": 10
+      },
+      "torso": {
+         "x": 130,
+         "y": 78
+      }
+   },
+   "image2468": {
+      "head": {
+         "x": 150,
+         "y": 20
+      },
+      "image": "IMG_20211102_204437_BURST068.jpg",
+      "left_ankle": {
+         "x": 129,
+         "y": 152
+      },
+      "left_elbow": {
+         "x": 170,
+         "y": 66
+      },
+      "left_hip": {
+         "x": 141,
+         "y": 75
+      },
+      "left_knee": {
+         "x": 136,
+         "y": 118
+      },
+      "left_shoulder": {
+         "x": 163,
+         "y": 39
+      },
+      "left_wrist": {
+         "x": 178,
+         "y": 87
+      },
+      "neck": {
+         "x": 145,
+         "y": 32
+      },
+      "right_ankle": {
+         "x": 106,
+         "y": 131
+      },
+      "right_elbow": {
+         "x": 94,
+         "y": 30
+      },
+      "right_hip": {
+         "x": 120,
+         "y": 71
+      },
+      "right_knee": {
+         "x": 97,
+         "y": 92
+      },
+      "right_shoulder": {
+         "x": 120,
+         "y": 33
+      },
+      "right_writs": {
+         "x": 87,
+         "y": 4
+      },
+      "torso": {
+         "x": 130,
+         "y": 73
+      }
+   },
+   "image2469": {
+      "head": {
+         "x": 149,
+         "y": 18
+      },
+      "image": "IMG_20211102_204437_BURST069.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 150
+      },
+      "left_elbow": {
+         "x": 168,
+         "y": 65
+      },
+      "left_hip": {
+         "x": 140,
+         "y": 74
+      },
+      "left_knee": {
+         "x": 133,
+         "y": 116
+      },
+      "left_shoulder": {
+         "x": 163,
+         "y": 39
+      },
+      "left_wrist": {
+         "x": 176,
+         "y": 86
+      },
+      "neck": {
+         "x": 144,
+         "y": 30
+      },
+      "right_ankle": {
+         "x": 101,
+         "y": 130
+      },
+      "right_elbow": {
+         "x": 92,
+         "y": 27
+      },
+      "right_hip": {
+         "x": 119,
+         "y": 69
+      },
+      "right_knee": {
+         "x": 94,
+         "y": 90
+      },
+      "right_shoulder": {
+         "x": 118,
+         "y": 31
+      },
+      "right_writs": {
+         "x": 87,
+         "y": 1
+      },
+      "torso": {
+         "x": 128,
+         "y": 72
+      }
+   },
+   "image2470": {
+      "head": {
+         "x": 145,
+         "y": 15
+      },
+      "image": "IMG_20211102_204437_BURST070.jpg",
+      "left_ankle": {
+         "x": 122,
+         "y": 148
+      },
+      "left_elbow": {
+         "x": 166,
+         "y": 62
+      },
+      "left_hip": {
+         "x": 137,
+         "y": 72
+      },
+      "left_knee": {
+         "x": 130,
+         "y": 114
+      },
+      "left_shoulder": {
+         "x": 159,
+         "y": 36
+      },
+      "left_wrist": {
+         "x": 173,
+         "y": 83
+      },
+      "neck": {
+         "x": 140,
+         "y": 27
+      },
+      "right_ankle": {
+         "x": 98,
+         "y": 128
+      },
+      "right_elbow": {
+         "x": 88,
+         "y": 24
+      },
+      "right_hip": {
+         "x": 116,
+         "y": 67
+      },
+      "right_knee": {
+         "x": 91,
+         "y": 88
+      },
+      "right_shoulder": {
+         "x": 114,
+         "y": 28
+      },
+      "right_writs": {
+         "x": 0,
+         "y": 0
+      },
+      "torso": {
+         "x": 125,
+         "y": 70
+      }
+   },
+   "image2471": {
+      "head": {
+         "x": 140,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST071.jpg",
+      "left_ankle": {
+         "x": 121,
+         "y": 146
+      },
+      "left_elbow": {
+         "x": 163,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 134,
+         "y": 70
+      },
+      "left_knee": {
+         "x": 128,
+         "y": 112
+      },
+      "left_shoulder": {
+         "x": 156,
+         "y": 34
+      },
+      "left_wrist": {
+         "x": 171,
+         "y": 80
+      },
+      "neck": {
+         "x": 135,
+         "y": 24
+      },
+      "right_ankle": {
+         "x": 95,
+         "y": 129
+      },
+      "right_elbow": {
+         "x": 84,
+         "y": 23
+      },
+      "right_hip": {
+         "x": 113,
+         "y": 65
+      },
+      "right_knee": {
+         "x": 88,
+         "y": 89
+      },
+      "right_shoulder": {
+         "x": 111,
+         "y": 26
+      },
+      "right_writs": {
+         "x": 0,
+         "y": 0
+      },
+      "torso": {
+         "x": 122,
+         "y": 68
+      }
+   },
+   "image2472": {
+      "head": {
+         "x": 133,
+         "y": 10
+      },
+      "image": "IMG_20211102_204437_BURST072.jpg",
+      "left_ankle": {
+         "x": 120,
+         "y": 145
+      },
+      "left_elbow": {
+         "x": 159,
+         "y": 57
+      },
+      "left_hip": {
+         "x": 129,
+         "y": 68
+      },
+      "left_knee": {
+         "x": 125,
+         "y": 112
+      },
+      "left_shoulder": {
+         "x": 151,
+         "y": 32
+      },
+      "left_wrist": {
+         "x": 168,
+         "y": 79
+      },
+      "neck": {
+         "x": 129,
+         "y": 23
+      },
+      "right_ankle": {
+         "x": 92,
+         "y": 132
+      },
+      "right_elbow": {
+         "x": 78,
+         "y": 23
+      },
+      "right_hip": {
+         "x": 108,
+         "y": 65
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 92
+      },
+      "right_shoulder": {
+         "x": 106,
+         "y": 26
+      },
+      "right_writs": {
+         "x": 0,
+         "y": 0
+      },
+      "torso": {
+         "x": 118,
+         "y": 67
+      }
+   },
+   "image2473": {
+      "head": {
+         "x": 132,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST073.jpg",
+      "left_ankle": {
+         "x": 120,
+         "y": 145
+      },
+      "left_elbow": {
+         "x": 158,
+         "y": 57
+      },
+      "left_hip": {
+         "x": 129,
+         "y": 68
+      },
+      "left_knee": {
+         "x": 125,
+         "y": 112
+      },
+      "left_shoulder": {
+         "x": 151,
+         "y": 32
+      },
+      "left_wrist": {
+         "x": 168,
+         "y": 79
+      },
+      "neck": {
+         "x": 129,
+         "y": 24
+      },
+      "right_ankle": {
+         "x": 91,
+         "y": 134
+      },
+      "right_elbow": {
+         "x": 78,
+         "y": 23
+      },
+      "right_hip": {
+         "x": 108,
+         "y": 65
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 95
+      },
+      "right_shoulder": {
+         "x": 108,
+         "y": 26
+      },
+      "right_writs": {
+         "x": 0,
+         "y": 0
+      },
+      "torso": {
+         "x": 118,
+         "y": 67
+      }
+   },
+   "image2474": {
+      "head": {
+         "x": 134,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST074.jpg",
+      "left_ankle": {
+         "x": 119,
+         "y": 146
+      },
+      "left_elbow": {
+         "x": 159,
+         "y": 57
+      },
+      "left_hip": {
+         "x": 129,
+         "y": 68
+      },
+      "left_knee": {
+         "x": 125,
+         "y": 112
+      },
+      "left_shoulder": {
+         "x": 151,
+         "y": 31
+      },
+      "left_wrist": {
+         "x": 169,
+         "y": 79
+      },
+      "neck": {
+         "x": 130,
+         "y": 24
+      },
+      "right_ankle": {
+         "x": 90,
+         "y": 138
+      },
+      "right_elbow": {
+         "x": 80,
+         "y": 25
+      },
+      "right_hip": {
+         "x": 108,
+         "y": 65
+      },
+      "right_knee": {
+         "x": 87,
+         "y": 97
+      },
+      "right_shoulder": {
+         "x": 107,
+         "y": 26
+      },
+      "right_writs": {
+         "x": 67,
+         "y": 0
+      },
+      "torso": {
+         "x": 119,
+         "y": 67
+      }
+   },
+   "image2475": {
+      "head": {
+         "x": 138,
+         "y": 12
+      },
+      "image": "IMG_20211102_204437_BURST075.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 147
+      },
+      "left_elbow": {
+         "x": 163,
+         "y": 58
+      },
+      "left_hip": {
+         "x": 133,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 129,
+         "y": 113
+      },
+      "left_shoulder": {
+         "x": 155,
+         "y": 32
+      },
+      "left_wrist": {
+         "x": 174,
+         "y": 80
+      },
+      "neck": {
+         "x": 134,
+         "y": 25
+      },
+      "right_ankle": {
+         "x": 93,
+         "y": 142
+      },
+      "right_elbow": {
+         "x": 84,
+         "y": 26
+      },
+      "right_hip": {
+         "x": 112,
+         "y": 66
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 102
+      },
+      "right_shoulder": {
+         "x": 111,
+         "y": 27
+      },
+      "right_writs": {
+         "x": 69,
+         "y": 1
+      },
+      "torso": {
+         "x": 122,
+         "y": 68
+      }
+   },
+   "image2476": {
+      "head": {
+         "x": 136,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST076.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 147
+      },
+      "left_elbow": {
+         "x": 163,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 133,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 130,
+         "y": 113
+      },
+      "left_shoulder": {
+         "x": 154,
+         "y": 33
+      },
+      "left_wrist": {
+         "x": 174,
+         "y": 80
+      },
+      "neck": {
+         "x": 134,
+         "y": 25
+      },
+      "right_ankle": {
+         "x": 94,
+         "y": 143
+      },
+      "right_elbow": {
+         "x": 82,
+         "y": 27
+      },
+      "right_hip": {
+         "x": 111,
+         "y": 67
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 104
+      },
+      "right_shoulder": {
+         "x": 109,
+         "y": 27
+      },
+      "right_writs": {
+         "x": 67,
+         "y": 2
+      },
+      "torso": {
+         "x": 121,
+         "y": 68
+      }
+   },
+   "image2477": {
+      "head": {
+         "x": 133,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST077.jpg",
+      "left_ankle": {
+         "x": 124,
+         "y": 148
+      },
+      "left_elbow": {
+         "x": 162,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 132,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 129,
+         "y": 114
+      },
+      "left_shoulder": {
+         "x": 153,
+         "y": 33
+      },
+      "left_wrist": {
+         "x": 173,
+         "y": 80
+      },
+      "neck": {
+         "x": 131,
+         "y": 25
+      },
+      "right_ankle": {
+         "x": 93,
+         "y": 145
+      },
+      "right_elbow": {
+         "x": 80,
+         "y": 27
+      },
+      "right_hip": {
+         "x": 110,
+         "y": 67
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 106
+      },
+      "right_shoulder": {
+         "x": 109,
+         "y": 27
+      },
+      "right_writs": {
+         "x": 63,
+         "y": 3
+      },
+      "torso": {
+         "x": 120,
+         "y": 68
+      }
+   },
+   "image2478": {
+      "head": {
+         "x": 126,
+         "y": 10
+      },
+      "image": "IMG_20211102_204437_BURST078.jpg",
+      "left_ankle": {
+         "x": 125,
+         "y": 148
+      },
+      "left_elbow": {
+         "x": 158,
+         "y": 57
+      },
+      "left_hip": {
+         "x": 128,
+         "y": 68
+      },
+      "left_knee": {
+         "x": 128,
+         "y": 113
+      },
+      "left_shoulder": {
+         "x": 147,
+         "y": 33
+      },
+      "left_wrist": {
+         "x": 170,
+         "y": 78
+      },
+      "neck": {
+         "x": 126,
+         "y": 25
+      },
+      "right_ankle": {
+         "x": 94,
+         "y": 147
+      },
+      "right_elbow": {
+         "x": 74,
+         "y": 28
+      },
+      "right_hip": {
+         "x": 106,
+         "y": 68
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 108
+      },
+      "right_shoulder": {
+         "x": 104,
+         "y": 28
+      },
+      "right_writs": {
+         "x": 55,
+         "y": 6
+      },
+      "torso": {
+         "x": 116,
+         "y": 68
+      }
+   },
+   "image2479": {
+      "head": {
+         "x": 125,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST079.jpg",
+      "left_ankle": {
+         "x": 125,
+         "y": 148
+      },
+      "left_elbow": {
+         "x": 157,
+         "y": 58
+      },
+      "left_hip": {
+         "x": 128,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 128,
+         "y": 114
+      },
+      "left_shoulder": {
+         "x": 147,
+         "y": 33
+      },
+      "left_wrist": {
+         "x": 169,
+         "y": 78
+      },
+      "neck": {
+         "x": 125,
+         "y": 26
+      },
+      "right_ankle": {
+         "x": 93,
+         "y": 148
+      },
+      "right_elbow": {
+         "x": 75,
+         "y": 29
+      },
+      "right_hip": {
+         "x": 106,
+         "y": 68
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 109
+      },
+      "right_shoulder": {
+         "x": 104,
+         "y": 28
+      },
+      "right_writs": {
+         "x": 55,
+         "y": 7
+      },
+      "torso": {
+         "x": 116,
+         "y": 69
+      }
+   },
+   "image2480": {
+      "head": {
+         "x": 123,
+         "y": 11
+      },
+      "image": "IMG_20211102_204437_BURST080.jpg",
+      "left_ankle": {
+         "x": 124,
+         "y": 149
+      },
+      "left_elbow": {
+         "x": 155,
+         "y": 58
+      },
+      "left_hip": {
+         "x": 126,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 126,
+         "y": 115
+      },
+      "left_shoulder": {
+         "x": 146,
+         "y": 34
+      },
+      "left_wrist": {
+         "x": 168,
+         "y": 79
+      },
+      "neck": {
+         "x": 124,
+         "y": 26
+      },
+      "right_ankle": {
+         "x": 93,
+         "y": 149
+      },
+      "right_elbow": {
+         "x": 73,
+         "y": 30
+      },
+      "right_hip": {
+         "x": 104,
+         "y": 68
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 111
+      },
+      "right_shoulder": {
+         "x": 101,
+         "y": 30
+      },
+      "right_writs": {
+         "x": 52,
+         "y": 9
+      },
+      "torso": {
+         "x": 115,
+         "y": 69
+      }
+   },
+   "image2481": {
+      "head": {
+         "x": 117,
+         "y": 12
+      },
+      "image": "IMG_20211102_204437_BURST081.jpg",
+      "left_ankle": {
+         "x": 124,
+         "y": 150
+      },
+      "left_elbow": {
+         "x": 152,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 123,
+         "y": 71
+      },
+      "left_knee": {
+         "x": 125,
+         "y": 116
+      },
+      "left_shoulder": {
+         "x": 142,
+         "y": 34
+      },
+      "left_wrist": {
+         "x": 165,
+         "y": 80
+      },
+      "neck": {
+         "x": 119,
+         "y": 28
+      },
+      "right_ankle": {
+         "x": 93,
+         "y": 150
+      },
+      "right_elbow": {
+         "x": 69,
+         "y": 33
+      },
+      "right_hip": {
+         "x": 101,
+         "y": 70
+      },
+      "right_knee": {
+         "x": 90,
+         "y": 114
+      },
+      "right_shoulder": {
+         "x": 97,
+         "y": 32
+      },
+      "right_writs": {
+         "x": 46,
+         "y": 13
+      },
+      "torso": {
+         "x": 112,
+         "y": 71
+      }
+   },
+   "image2482": {
+      "head": {
+         "x": 109,
+         "y": 15
+      },
+      "image": "IMG_20211102_204437_BURST082.jpg",
+      "left_ankle": {
+         "x": 124,
+         "y": 153
+      },
+      "left_elbow": {
+         "x": 147,
+         "y": 61
+      },
+      "left_hip": {
+         "x": 120,
+         "y": 75
+      },
+      "left_knee": {
+         "x": 123,
+         "y": 119
+      },
+      "left_shoulder": {
+         "x": 137,
+         "y": 37
+      },
+      "left_wrist": {
+         "x": 161,
+         "y": 81
+      },
+      "neck": {
+         "x": 114,
+         "y": 31
+      },
+      "right_ankle": {
+         "x": 92,
+         "y": 153
+      },
+      "right_elbow": {
+         "x": 64,
+         "y": 38
+      },
+      "right_hip": {
+         "x": 97,
+         "y": 75
+      },
+      "right_knee": {
+         "x": 89,
+         "y": 117
+      },
+      "right_shoulder": {
+         "x": 91,
+         "y": 35
+      },
+      "right_writs": {
+         "x": 39,
+         "y": 21
+      },
+      "torso": {
+         "x": 107,
+         "y": 75
+      }
+   },
+   "image2483": {
+      "head": {
+         "x": 107,
+         "y": 16
+      },
+      "image": "IMG_20211102_204437_BURST083.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 154
+      },
+      "left_elbow": {
+         "x": 145,
+         "y": 61
+      },
+      "left_hip": {
+         "x": 118,
+         "y": 76
+      },
+      "left_knee": {
+         "x": 121,
+         "y": 119
+      },
+      "left_shoulder": {
+         "x": 134,
+         "y": 38
+      },
+      "left_wrist": {
+         "x": 160,
+         "y": 82
+      },
+      "neck": {
+         "x": 111,
+         "y": 32
+      },
+      "right_ankle": {
+         "x": 92,
+         "y": 154
+      },
+      "right_elbow": {
+         "x": 62,
+         "y": 40
+      },
+      "right_hip": {
+         "x": 95,
+         "y": 76
+      },
+      "right_knee": {
+         "x": 88,
+         "y": 118
+      },
+      "right_shoulder": {
+         "x": 89,
+         "y": 37
+      },
+      "right_writs": {
+         "x": 36,
+         "y": 23
+      },
+      "torso": {
+         "x": 105,
+         "y": 76
+      }
+   },
+   "image2484": {
+      "head": {
+         "x": 104,
+         "y": 17
+      },
+      "image": "IMG_20211102_204437_BURST084.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 155
+      },
+      "left_elbow": {
+         "x": 144,
+         "y": 61
+      },
+      "left_hip": {
+         "x": 116,
+         "y": 77
+      },
+      "left_knee": {
+         "x": 121,
+         "y": 120
+      },
+      "left_shoulder": {
+         "x": 132,
+         "y": 38
+      },
+      "left_wrist": {
+         "x": 159,
+         "y": 82
+      },
+      "neck": {
+         "x": 110,
+         "y": 33
+      },
+      "right_ankle": {
+         "x": 92,
+         "y": 155
+      },
+      "right_elbow": {
+         "x": 62,
+         "y": 41
+      },
+      "right_hip": {
+         "x": 94,
+         "y": 77
+      },
+      "right_knee": {
+         "x": 87,
+         "y": 118
+      },
+      "right_shoulder": {
+         "x": 88,
+         "y": 38
+      },
+      "right_writs": {
+         "x": 34,
+         "y": 25
+      },
+      "torso": {
+         "x": 104,
+         "y": 77
+      }
+   },
+   "image2485": {
+      "head": {
+         "x": 101,
+         "y": 19
+      },
+      "image": "IMG_20211102_204437_BURST085.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 157
+      },
+      "left_elbow": {
+         "x": 142,
+         "y": 62
+      },
+      "left_hip": {
+         "x": 114,
+         "y": 79
+      },
+      "left_knee": {
+         "x": 120,
+         "y": 122
+      },
+      "left_shoulder": {
+         "x": 130,
+         "y": 40
+      },
+      "left_wrist": {
+         "x": 159,
+         "y": 83
+      },
+      "neck": {
+         "x": 107,
+         "y": 35
+      },
+      "right_ankle": {
+         "x": 92,
+         "y": 157
+      },
+      "right_elbow": {
+         "x": 60,
+         "y": 45
+      },
+      "right_hip": {
+         "x": 92,
+         "y": 79
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 120
+      },
+      "right_shoulder": {
+         "x": 87,
+         "y": 40
+      },
+      "right_writs": {
+         "x": 32,
+         "y": 31
+      },
+      "torso": {
+         "x": 102,
+         "y": 79
+      }
+   },
+   "image2486": {
+      "head": {
+         "x": 96,
+         "y": 21
+      },
+      "image": "IMG_20211102_204437_BURST086.jpg",
+      "left_ankle": {
+         "x": 123,
+         "y": 157
+      },
+      "left_elbow": {
+         "x": 140,
+         "y": 62
+      },
+      "left_hip": {
+         "x": 112,
+         "y": 80
+      },
+      "left_knee": {
+         "x": 119,
+         "y": 121
+      },
+      "left_shoulder": {
+         "x": 125,
+         "y": 39
+      },
+      "left_wrist": {
+         "x": 158,
+         "y": 81
+      },
+      "neck": {
+         "x": 105,
+         "y": 36
+      },
+      "right_ankle": {
+         "x": 92,
+         "y": 157
+      },
+      "right_elbow": {
+         "x": 59,
+         "y": 47
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 80
+      },
+      "right_knee": {
+         "x": 85,
+         "y": 121
+      },
+      "right_shoulder": {
+         "x": 86,
+         "y": 41
+      },
+      "right_writs": {
+         "x": 28,
+         "y": 36
+      },
+      "torso": {
+         "x": 100,
+         "y": 80
+      }
+   },
+   "image2487": {
+      "head": {
+         "x": 94,
+         "y": 22
+      },
+      "image": "IMG_20211102_204437_BURST087.jpg",
+      "left_ankle": {
+         "x": 124,
+         "y": 157
+      },
+      "left_elbow": {
+         "x": 139,
+         "y": 63
+      },
+      "left_hip": {
+         "x": 111,
+         "y": 80
+      },
+      "left_knee": {
+         "x": 119,
+         "y": 121
+      },
+      "left_shoulder": {
+         "x": 123,
+         "y": 40
+      },
+      "left_wrist": {
+         "x": 158,
+         "y": 81
+      },
+      "neck": {
+         "x": 103,
+         "y": 37
+      },
+      "right_ankle": {
+         "x": 93,
+         "y": 158
+      },
+      "right_elbow": {
+         "x": 57,
+         "y": 50
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 81
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 122
+      },
+      "right_shoulder": {
+         "x": 84,
+         "y": 42
+      },
+      "right_writs": {
+         "x": 26,
+         "y": 39
+      },
+      "torso": {
+         "x": 100,
+         "y": 81
+      }
+   },
+   "image2488": {
+      "head": {
+         "x": 90,
+         "y": 23
+      },
+      "image": "IMG_20211102_204437_BURST088.jpg",
+      "left_ankle": {
+         "x": 126,
+         "y": 156
+      },
+      "left_elbow": {
+         "x": 138,
+         "y": 62
+      },
+      "left_hip": {
+         "x": 110,
+         "y": 80
+      },
+      "left_knee": {
+         "x": 119,
+         "y": 121
+      },
+      "left_shoulder": {
+         "x": 122,
+         "y": 41
+      },
+      "left_wrist": {
+         "x": 157,
+         "y": 79
+      },
+      "neck": {
+         "x": 100,
+         "y": 38
+      },
+      "right_ankle": {
+         "x": 94,
+         "y": 159
+      },
+      "right_elbow": {
+         "x": 55,
+         "y": 53
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 81
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 123
+      },
+      "right_shoulder": {
+         "x": 82,
+         "y": 44
+      },
+      "right_writs": {
+         "x": 23,
+         "y": 45
+      },
+      "torso": {
+         "x": 99,
+         "y": 81
+      }
+   },
+   "image2489": {
+      "head": {
+         "x": 88,
+         "y": 23
+      },
+      "image": "IMG_20211102_204437_BURST089.jpg",
+      "left_ankle": {
+         "x": 126,
+         "y": 155
+      },
+      "left_elbow": {
+         "x": 137,
+         "y": 62
+      },
+      "left_hip": {
+         "x": 109,
+         "y": 80
+      },
+      "left_knee": {
+         "x": 118,
+         "y": 121
+      },
+      "left_shoulder": {
+         "x": 120,
+         "y": 41
+      },
+      "left_wrist": {
+         "x": 157,
+         "y": 78
+      },
+      "neck": {
+         "x": 98,
+         "y": 38
+      },
+      "right_ankle": {
+         "x": 94,
+         "y": 160
+      },
+      "right_elbow": {
+         "x": 54,
+         "y": 55
+      },
+      "right_hip": {
+         "x": 89,
+         "y": 82
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 80,
+         "y": 45
+      },
+      "right_writs": {
+         "x": 22,
+         "y": 50
+      },
+      "torso": {
+         "x": 98,
+         "y": 81
+      }
+   },
+   "image2490": {
+      "head": {
+         "x": 87,
+         "y": 24
+      },
+      "image": "IMG_20211102_204437_BURST090.jpg",
+      "left_ankle": {
+         "x": 126,
+         "y": 154
+      },
+      "left_elbow": {
+         "x": 137,
+         "y": 62
+      },
+      "left_hip": {
+         "x": 109,
+         "y": 80
+      },
+      "left_knee": {
+         "x": 118,
+         "y": 121
+      },
+      "left_shoulder": {
+         "x": 119,
+         "y": 41
+      },
+      "left_wrist": {
+         "x": 157,
+         "y": 77
+      },
+      "neck": {
+         "x": 97,
+         "y": 39
+      },
+      "right_ankle": {
+         "x": 95,
+         "y": 160
+      },
+      "right_elbow": {
+         "x": 54,
+         "y": 56
+      },
+      "right_hip": {
+         "x": 89,
+         "y": 82
+      },
+      "right_knee": {
+         "x": 86,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 80,
+         "y": 46
+      },
+      "right_writs": {
+         "x": 21,
+         "y": 52
+      },
+      "torso": {
+         "x": 98,
+         "y": 81
+      }
+   },
+   "image2491": {
+      "head": {
+         "x": 87,
+         "y": 24
+      },
+      "image": "IMG_20211102_204437_BURST091.jpg",
+      "left_ankle": {
+         "x": 126,
+         "y": 153
+      },
+      "left_elbow": {
+         "x": 138,
+         "y": 60
+      },
+      "left_hip": {
+         "x": 110,
+         "y": 80
+      },
+      "left_knee": {
+         "x": 119,
+         "y": 119
+      },
+      "left_shoulder": {
+         "x": 121,
+         "y": 41
+      },
+      "left_wrist": {
+         "x": 159,
+         "y": 76
+      },
+      "neck": {
+         "x": 98,
+         "y": 39
+      },
+      "right_ankle": {
+         "x": 96,
+         "y": 160
+      },
+      "right_elbow": {
+         "x": 56,
+         "y": 58
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 82
+      },
+      "right_knee": {
+         "x": 87,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 81,
+         "y": 46
+      },
+      "right_writs": {
+         "x": 23,
+         "y": 56
+      },
+      "torso": {
+         "x": 99,
+         "y": 81
+      }
+   },
+   "image2492": {
+      "head": {
+         "x": 86,
+         "y": 24
+      },
+      "image": "IMG_20211102_204437_BURST092.jpg",
+      "left_ankle": {
+         "x": 128,
+         "y": 152
+      },
+      "left_elbow": {
+         "x": 139,
+         "y": 59
+      },
+      "left_hip": {
+         "x": 111,
+         "y": 79
+      },
+      "left_knee": {
+         "x": 119,
+         "y": 118
+      },
+      "left_shoulder": {
+         "x": 121,
+         "y": 40
+      },
+      "left_wrist": {
+         "x": 160,
+         "y": 73
+      },
+      "neck": {
+         "x": 97,
+         "y": 38
+      },
+      "right_ankle": {
+         "x": 99,
+         "y": 160
+      },
+      "right_elbow": {
+         "x": 57,
+         "y": 60
+      },
+      "right_hip": {
+         "x": 91,
+         "y": 83
+      },
+      "right_knee": {
+         "x": 89,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 80,
+         "y": 46
+      },
+      "right_writs": {
+         "x": 25,
+         "y": 60
+      },
+      "torso": {
+         "x": 100,
+         "y": 82
+      }
+   },
+   "image2493": {
+      "head": {
+         "x": 87,
+         "y": 23
+      },
+      "image": "IMG_20211102_204437_BURST093.jpg",
+      "left_ankle": {
+         "x": 126,
+         "y": 149
+      },
+      "left_elbow": {
+         "x": 140,
+         "y": 58
+      },
+      "left_hip": {
+         "x": 111,
+         "y": 78
+      },
+      "left_knee": {
+         "x": 118,
+         "y": 114
+      },
+      "left_shoulder": {
+         "x": 122,
+         "y": 40
+      },
+      "left_wrist": {
+         "x": 161,
+         "y": 70
+      },
+      "neck": {
+         "x": 98,
+         "y": 38
+      },
+      "right_ankle": {
+         "x": 99,
+         "y": 159
+      },
+      "right_elbow": {
+         "x": 60,
+         "y": 59
+      },
+      "right_hip": {
+         "x": 92,
+         "y": 82
+      },
+      "right_knee": {
+         "x": 90,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 82,
+         "y": 46
+      },
+      "right_writs": {
+         "x": 28,
+         "y": 63
+      },
+      "torso": {
+         "x": 101,
+         "y": 81
+      }
+   },
+   "image2494": {
+      "head": {
+         "x": 87,
+         "y": 24
+      },
+      "image": "IMG_20211102_204437_BURST094.jpg",
+      "left_ankle": {
+         "x": 125,
+         "y": 149
+      },
+      "left_elbow": {
+         "x": 140,
+         "y": 58
+      },
+      "left_hip": {
+         "x": 111,
+         "y": 78
+      },
+      "left_knee": {
+         "x": 117,
+         "y": 113
+      },
+      "left_shoulder": {
+         "x": 122,
+         "y": 40
+      },
+      "left_wrist": {
+         "x": 162,
+         "y": 70
+      },
+      "neck": {
+         "x": 98,
+         "y": 38
+      },
+      "right_ankle": {
+         "x": 99,
+         "y": 159
+      },
+      "right_elbow": {
+         "x": 61,
+         "y": 61
+      },
+      "right_hip": {
+         "x": 92,
+         "y": 82
+      },
+      "right_knee": {
+         "x": 90,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 82,
+         "y": 46
+      },
+      "right_writs": {
+         "x": 29,
+         "y": 65
+      },
+      "torso": {
+         "x": 101,
+         "y": 81
+      }
+   },
+   "image2495": {
+      "head": {
+         "x": 85,
+         "y": 24
+      },
+      "image": "IMG_20211102_204437_BURST095.jpg",
+      "left_ankle": {
+         "x": 125,
+         "y": 148
+      },
+      "left_elbow": {
+         "x": 138,
+         "y": 56
+      },
+      "left_hip": {
+         "x": 110,
+         "y": 77
+      },
+      "left_knee": {
+         "x": 115,
+         "y": 112
+      },
+      "left_shoulder": {
+         "x": 120,
+         "y": 39
+      },
+      "left_wrist": {
+         "x": 160,
+         "y": 67
+      },
+      "neck": {
+         "x": 96,
+         "y": 38
+      },
+      "right_ankle": {
+         "x": 100,
+         "y": 158
+      },
+      "right_elbow": {
+         "x": 61,
+         "y": 62
+      },
+      "right_hip": {
+         "x": 91,
+         "y": 82
+      },
+      "right_knee": {
+         "x": 90,
+         "y": 124
+      },
+      "right_shoulder": {
+         "x": 80,
+         "y": 47
+      },
+      "right_writs": {
+         "x": 31,
+         "y": 69
+      },
+      "torso": {
+         "x": 100,
+         "y": 81
+      }
+   },
+   "image2496": {
+      "head": {
+         "x": 79,
+         "y": 18
+      },
+      "image": "IMG_20211102_204437_BURST096.jpg",
+      "left_ankle": {
+         "x": 121,
+         "y": 141
+      },
+      "left_elbow": {
+         "x": 136,
+         "y": 48
+      },
+      "left_hip": {
+         "x": 108,
+         "y": 71
+      },
+      "left_knee": {
+         "x": 111,
+         "y": 105
+      },
+      "left_shoulder": {
+         "x": 115,
+         "y": 31
+      },
+      "left_wrist": {
+         "x": 157,
+         "y": 59
+      },
+      "neck": {
+         "x": 92,
+         "y": 31
+      },
+      "right_ankle": {
+         "x": 98,
+         "y": 153
+      },
+      "right_elbow": {
+         "x": 59,
+         "y": 58
+      },
+      "right_hip": {
+         "x": 88,
+         "y": 77
+      },
+      "right_knee": {
+         "x": 87,
+         "y": 119
+      },
+      "right_shoulder": {
+         "x": 76,
+         "y": 42
+      },
+      "right_writs": {
+         "x": 30,
+         "y": 67
+      },
+      "torso": {
+         "x": 97,
+         "y": 76
+      }
+   },
+   "image2497": {
+      "head": {
+         "x": 79,
+         "y": 17
+      },
+      "image": "IMG_20211102_204437_BURST097.jpg",
+      "left_ankle": {
+         "x": 120,
+         "y": 140
+      },
+      "left_elbow": {
+         "x": 137,
+         "y": 47
+      },
+      "left_hip": {
+         "x": 109,
+         "y": 70
+      },
+      "left_knee": {
+         "x": 110,
+         "y": 103
+      },
+      "left_shoulder": {
+         "x": 118,
+         "y": 31
+      },
+      "left_wrist": {
+         "x": 159,
+         "y": 56
+      },
+      "neck": {
+         "x": 94,
+         "y": 30
+      },
+      "right_ankle": {
+         "x": 100,
+         "y": 152
+      },
+      "right_elbow": {
+         "x": 62,
+         "y": 59
+      },
+      "right_hip": {
+         "x": 89,
+         "y": 77
+      },
+      "right_knee": {
+         "x": 88,
+         "y": 117
+      },
+      "right_shoulder": {
+         "x": 77,
+         "y": 41
+      },
+      "right_writs": {
+         "x": 34,
+         "y": 70
+      },
+      "torso": {
+         "x": 98,
+         "y": 75
+      }
+   },
+   "image2498": {
+      "head": {
+         "x": 78,
+         "y": 17
+      },
+      "image": "IMG_20211102_204437_BURST098.jpg",
+      "left_ankle": {
+         "x": 119,
+         "y": 138
+      },
+      "left_elbow": {
+         "x": 138,
+         "y": 46
+      },
+      "left_hip": {
+         "x": 110,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 109,
+         "y": 102
+      },
+      "left_shoulder": {
+         "x": 118,
+         "y": 30
+      },
+      "left_wrist": {
+         "x": 158,
+         "y": 53
+      },
+      "neck": {
+         "x": 94,
+         "y": 30
+      },
+      "right_ankle": {
+         "x": 101,
+         "y": 151
+      },
+      "right_elbow": {
+         "x": 64,
+         "y": 60
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 77
+      },
+      "right_knee": {
+         "x": 90,
+         "y": 117
+      },
+      "right_shoulder": {
+         "x": 78,
+         "y": 42
+      },
+      "right_writs": {
+         "x": 39,
+         "y": 72
+      },
+      "torso": {
+         "x": 99,
+         "y": 74
+      }
+   },
+   "image2499": {
+      "head": {
+         "x": 78,
+         "y": 17
+      },
+      "image": "IMG_20211102_204437_BURST099.jpg",
+      "left_ankle": {
+         "x": 119,
+         "y": 138
+      },
+      "left_elbow": {
+         "x": 138,
+         "y": 45
+      },
+      "left_hip": {
+         "x": 110,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 109,
+         "y": 101
+      },
+      "left_shoulder": {
+         "x": 117,
+         "y": 29
+      },
+      "left_wrist": {
+         "x": 159,
+         "y": 52
+      },
+      "neck": {
+         "x": 94,
+         "y": 30
+      },
+      "right_ankle": {
+         "x": 102,
+         "y": 151
+      },
+      "right_elbow": {
+         "x": 66,
+         "y": 60
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 77
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 118
+      },
+      "right_shoulder": {
+         "x": 78,
+         "y": 43
+      },
+      "right_writs": {
+         "x": 41,
+         "y": 74
+      },
+      "torso": {
+         "x": 99,
+         "y": 74
+      }
+   },
+   "image2500": {
+      "head": {
+         "x": 78,
+         "y": 18
+      },
+      "image": "IMG_20211102_204437_BURST100.jpg",
+      "left_ankle": {
+         "x": 119,
+         "y": 138
+      },
+      "left_elbow": {
+         "x": 138,
+         "y": 45
+      },
+      "left_hip": {
+         "x": 110,
+         "y": 69
+      },
+      "left_knee": {
+         "x": 109,
+         "y": 101
+      },
+      "left_shoulder": {
+         "x": 117,
+         "y": 29
+      },
+      "left_wrist": {
+         "x": 159,
+         "y": 51
+      },
+      "neck": {
+         "x": 94,
+         "y": 31
+      },
+      "right_ankle": {
+         "x": 103,
+         "y": 151
+      },
+      "right_elbow": {
+         "x": 67,
+         "y": 61
+      },
+      "right_hip": {
+         "x": 90,
+         "y": 77
+      },
+      "right_knee": {
+         "x": 92,
+         "y": 118
+      },
+      "right_shoulder": {
+         "x": 78,
+         "y": 43
+      },
+      "right_writs": {
+         "x": 43,
+         "y": 75
+      },
+      "torso": {
+         "x": 99,
+         "y": 74
+      }
+   },
+   "image2501": {
+      "head": {
+         "x": 112,
+         "y": 45
+      },
+      "image": "IMG_20211102_204445_BURST001_COVER.jpg",
+      "left_ankle": {
+         "x": 125,
+         "y": 184
+      },
+      "left_elbow": {
+         "x": 131,
+         "y": 47
+      },
+      "left_hip": {
+         "x": 131,
+         "y": 110
+      },
+      "left_knee": {
+         "x": 123,
+         "y": 150
+      },
+      "left_shoulder": {
+         "x": 142,
+         "y": 57
+      },
+      "left_wrist": {
+         "x": 112,
+         "y": 9
+      },
+      "neck": {
+         "x": 132,
+         "y": 56
+      },
+      "right_ankle": {
+         "x": 136,
+         "y": 175
+      },
+      "right_elbow": {
+         "x": 0,
+         "y": 0
+      },
+      "right_hip": {
+         "x": 123,
+         "y": 107
+      },
+      "right_knee": {
+         "x": 0,
+         "y": 0
+      },
+      "right_shoulder": {
+         "x": 0,
+         "y": 0
+      },
+      "right_writs": {
+         "x": 115,
+         "y": 36
+      },
+      "torso": {
+         "x": 127,
+         "y": 108
+      }
+   },
+   "image2502": {
+      "head": {
+         "x": 114,
+         "y": 44
+      },
+      "image": "IMG_20211102_204445_BURST002.jpg",
+      "left_ankle": {
+         "x": 127,
+         "y": 182
+      },
+      "left_elbow": {
+         "x": 131,
+         "y": 45
+      },
+      "left_hip": {
+         "x": 132,
+         "y": 108
+      },
+      "left_knee": {
+         "x": 125,
+         "y": 150
+      },
+      "left_shoulder": {
+         "x": 142,
+         "y": 54
+      },
+      "left_wrist": {
+         "x": 113,
+         "y": 8
+      },
+      "neck": {
+         "x": 132,
+         "y": 56
+      },
+      "right_ankle": {
+         "x": 137,
+         "y": 173
+      },
+      "right_elbow": {
+         "x": 0,
+         "y": 0
+      },
+      "right_hip": {
+         "x": 124,
+         "y": 106
+      },
+      "right_knee": {
+         "x": 0,
+         "y": 0
+      },
+      "right_shoulder": {
+         "x": 0,
+         "y": 0
+      },
+      "right_writs": {
+         "x": 117,
+         "y": 36
+      },
+      "torso": {
+         "x": 128,
+         "y": 107
       }
    }
 }
