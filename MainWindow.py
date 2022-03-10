@@ -230,6 +230,21 @@ class MainWindow:
             self.update_circles()
             self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
 
+    def skip_hundred(self):
+        if self.index == self.images.__len__() - 1:
+            print('this is the last image')
+            self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
+            self.image = self.images[self.index]
+        else:
+            print("Next pressed")
+            self.index = self.index + 1000
+            self.image = self.images[self.index]
+            self.canvas.itemconfig(self.image_on_canvas, image=self.photoImages[self.index])
+            self.update_joints_from_json()
+            self.set_button_text()
+            self.update_circles()
+            self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
+
     def prev_data(self):
         if self.index == 0:
             self.update_joints_from_json()
@@ -334,6 +349,48 @@ class MainWindow:
         self.right_writs_button.config(text=f'Right wrist x: {self.right_wrist["x"]} y: {self.right_wrist["y"]}')
         self.torso_button.config(text=f'Torso x: {self.torso["x"]} y: {self.torso["y"]}')
 
+    def get_next_pose(self):
+        self.get_json()
+        print('Getting the next pose')
+        try:
+            print("image found")
+            self.head['x'] = self.json_dict[f'image{self.index+1}']['head']['x']
+            self.head['y'] = self.json_dict[f'image{self.index+1}']['head']['y']
+            self.left_ankle['x'] = self.json_dict[f'image{self.index+1}']['left_ankle']['x']
+            self.left_ankle['y'] = self.json_dict[f'image{self.index+1}']['left_ankle']['y']
+            self.left_elbow['x'] = self.json_dict[f'image{self.index+1}']['left_elbow']['x']
+            self.left_elbow['y'] = self.json_dict[f'image{self.index+1}']['left_elbow']['y']
+            self.left_hip['x'] = self.json_dict[f'image{self.index+1}']['left_hip']['x']
+            self.left_hip['y'] = self.json_dict[f'image{self.index+1}']['left_hip']['y']
+            self.left_knee['x'] = self.json_dict[f'image{self.index+1}']['left_knee']['x']
+            self.left_knee['y'] = self.json_dict[f'image{self.index+1}']['left_knee']['y']
+            self.left_shoulder['x'] = self.json_dict[f'image{self.index+1}']['left_shoulder']['x']
+            self.left_shoulder['y'] = self.json_dict[f'image{self.index+1}']['left_shoulder']['y']
+            self.left_wrist['x'] = self.json_dict[f'image{self.index+1}']['left_wrist']['x']
+            self.left_wrist['y'] = self.json_dict[f'image{self.index+1}']['left_wrist']['y']
+            self.neck['x'] = self.json_dict[f'image{self.index+1}']['neck']['x']
+            self.neck['y'] = self.json_dict[f'image{self.index+1}']['neck']['y']
+            self.right_ankle['x'] = self.json_dict[f'image{self.index+1}']['right_ankle']['x']
+            self.right_ankle['y'] = self.json_dict[f'image{self.index+1}']['right_ankle']['y']
+            self.right_elbow['x'] = self.json_dict[f'image{self.index+1}']['right_elbow']['x']
+            self.right_elbow['y'] = self.json_dict[f'image{self.index+1}']['right_elbow']['y']
+            self.right_hip['x'] = self.json_dict[f'image{self.index+1}']['right_hip']['x']
+            self.right_hip['y'] = self.json_dict[f'image{self.index+1}']['right_hip']['y']
+            self.right_knee['x'] = self.json_dict[f'image{self.index+1}']['right_knee']['x']
+            self.right_knee['y'] = self.json_dict[f'image{self.index+1}']['right_knee']['y']
+            self.right_shoulder['x'] = self.json_dict[f'image{self.index+1}']['right_shoulder']['x']
+            self.right_shoulder['y'] = self.json_dict[f'image{self.index+1}']['right_shoulder']['y']
+            self.right_wrist['x'] = self.json_dict[f'image{self.index+1}']['right_writs']['x']
+            self.right_wrist['y'] = self.json_dict[f'image{self.index+1}']['right_writs']['y']
+            self.torso['x'] = self.json_dict[f'image{self.index+1}']['torso']['x']
+            self.torso['y'] = self.json_dict[f'image{self.index+1}']['torso']['y']
+            self.set_button_text()
+            self.update_circles()
+        except KeyError:
+            print("Image not found, setting coordinates to 0,0")
+            self.set_coordinates_zero()
+            self.set_button_text()
+            self.update_circles()
     def get_previous_pose(self):
         self.get_json()
         print('Getting previous pose.')
@@ -784,6 +841,10 @@ class MainWindow:
             self.move_current_right()
         elif event.char == 'v':
             self.switch_sides()
+        elif event.char == 't':
+            self.get_next_pose()
+        elif event.char == '0':
+            self.skip_hundred()
 
     def switch_sides(self):
         """swap left and right side coordinates"""

@@ -26,9 +26,6 @@ def predict_pose_movenet(path):
     image = tf.expand_dims(image, axis=0)
     # Resize and pad the image to keep the aspect ratio and fit the expected size.
     image = tf.cast(tf.image.resize_with_pad(image, 256, 256), dtype=tf.int32)
-
-
-
     # Run model inference.
     outputs = movenet(image)
     # Output is a [1, 1, 17, 3] tensor.
