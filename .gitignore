@@ -114,3 +114,4 @@ dmypy.json
 .pyre/
 
 /greenscreen2_images_resized_1000
+.DS_Store
