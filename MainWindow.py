@@ -14,7 +14,7 @@ class MainWindow:
         root.resizable(width=True, height=True)
         root.configure(background='#3A3A3A')
 
-        self.img_dir = 'greenscreen2_images_resized_1000/'                                          # Set the directory for the images
+        self.img_dir = 'C:/Users/William/Documents/C3P0 datasets/dataset2/greenscreen2_images_resized_1000/'                                          # Set the directory for the images
         self.images = os.listdir(self.img_dir)                                                      # Get the list of images in the directory
         # sort self.images
         self.images.sort()
