@@ -114,4 +114,13 @@ dmypy.json
 .pyre/
 
 /greenscreen2_images_resized_1000
+/224img
+/images
+/img
+/json
+/resized_img
+/my.jpg
+dataset2.json
+dataset3.json
+/models
 .DS_Store

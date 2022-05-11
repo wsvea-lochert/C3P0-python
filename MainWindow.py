@@ -3,6 +3,7 @@ import json
 from tkinter import *
 from PIL import ImageTk, Image
 from predict_pose import predict_pose, predict_pose_movenet
+import numpy as np
 
 
 class MainWindow:
@@ -14,13 +15,13 @@ class MainWindow:
         root.resizable(width=True, height=True)
         root.configure(background='#3A3A3A')
 
-        self.img_dir = 'C:/Users/William/Documents/C3P0 datasets/dataset2/greenscreen2_images_resized_1000/'                                          # Set the directory for the images
+        self.img_dir = 'resized_img/'                  # Set the directory for the images
         self.images = os.listdir(self.img_dir)                                                      # Get the list of images in the directory
         # sort self.images
         self.images.sort()
         self.index = 0                                                                              # Set the index to 0
 
-        self.json_dir = 'dataset2.json'                                                             # Set the directory for the json file
+        self.json_dir = 'dataset3.json'                                                             # Set the directory for the json file
         self.json_dict = {}                                                                         # Create a dictionary to store the json data
         self.json_pose = {}
         self.get_json()                                                                             # Get the json data
@@ -67,6 +68,8 @@ class MainWindow:
         self.torso = {'x': 0, 'y': 0}           # 14
 
         self.selected_joint = 0                 # The current selected joint, change the number between 0 and 14 to change the selected joint.
+        self.left_angle = 0                    # The angle between the selected joint and the left elbow
+        self.right_angle = 0                   # The angle between the selected joint and the right elbow
 
         # coordinates used to draw a ruler for angles in hips and shoulders.
         self.rp1 = {'x': 0, 'y': 0}
@@ -155,6 +158,14 @@ class MainWindow:
         self.index_text = Label(root, text=f"Current index {self.index} / {self.images.__len__()}", font=("Helvetica", 16), bg='#B63DC7', fg='white')
         self.index_text.place(x=200, y=200)
 
+        self.left_arm_angle_text = Label(root, text="Left arm angle: " + str(self.left_angle),
+                                         font=("Helvetica", 16), bg='#B63DC7', fg='white')
+        self.left_arm_angle_text.place(x=200, y=300)
+
+        self.right_arm_angle_text = Label(root, text="Left arm angle: " + str(self.right_angle),
+                                          font=("Helvetica", 16), bg='#B63DC7', fg='white')
+        self.right_arm_angle_text.place(x=200, y=400)
+
     def zero_current(self):
         # set the current joint to 0, 0 and update button text, circles
         if self.selected_joint == 0:
@@ -229,6 +240,10 @@ class MainWindow:
             self.set_button_text()
             self.update_circles()
             self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
+            self.get_left_angle()
+            self.get_right_angle()
+            self.left_arm_angle_text.config(text="Left arm angle: " + str(self.left_angle))
+            self.right_arm_angle_text.config(text="Right arm angle: " + str(self.right_angle))
 
     def skip_hundred(self):
         if self.index == self.images.__len__() - 1:
@@ -253,6 +268,10 @@ class MainWindow:
             self.canvas.itemconfig(self.image_on_canvas, image=self.photoImages[self.index])
             self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
             self.image = self.images[self.index]
+            self.get_left_angle()
+            self.get_right_angle()
+            self.left_arm_angle_text.config(text="Left arm angle: " + str(self.left_angle))
+            self.right_arm_angle_text.config(text="Right arm angle: " + str(self.right_angle))
         else:
             print("Prev pressed")
             self.index = self.index - 1
@@ -262,10 +281,14 @@ class MainWindow:
             self.update_circles()
             self.canvas.itemconfig(self.image_on_canvas, image=self.photoImages[self.index])
             self.index_text.config(text=f'Current index: {self.index} / {self.images.__len__()}')
+            self.get_left_angle()
+            self.get_right_angle()
+            self.left_arm_angle_text.config(text="Left arm angle: " + str(self.left_angle))
+            self.right_arm_angle_text.config(text="Right arm angle: " + str(self.right_angle))
 
     def load_images(self):
         for image in self.images:
-            self.photoImages.append(ImageTk.PhotoImage(Image.open(f'{self.img_dir}{image}').rotate(-90)))  # TODO Remove rotate if images are not rotated when loading.
+            self.photoImages.append(ImageTk.PhotoImage(Image.open(f'{self.img_dir}{image}')))  # TODO Remove rotate if images are not rotated when loading.
 
     def update_joints_from_json(self):
         """if json file contains the current image update joints"""
@@ -307,6 +330,28 @@ class MainWindow:
             print("Image not found, setting coordinates to 0,0")
             self.set_coordinates_zero()
             self.set_button_text()
+
+    def calculate_angle(self, shoulder, elbow, wrist):
+        """
+            Calculates the angle between three points.
+            """
+        a = np.array([shoulder['x'], shoulder['y']])
+        b = np.array([elbow['x'], elbow['y']])
+        c = np.array([wrist['x'], wrist['y']])
+        ba = a - b
+        bc = c - b
+
+        cosine_angle = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc))  # cosine of the angle
+        angle = np.arccos(cosine_angle)  # angle in radians
+        return np.degrees(angle)  # angle in degrees
+
+    def get_left_angle(self):
+        angle = self.calculate_angle(self.left_hip, self.left_shoulder, self.left_elbow)
+        self.left_angle = angle
+
+    def get_right_angle(self):
+        angle = self.calculate_angle(self.right_hip, self.right_shoulder, self.right_elbow)
+        self.right_angle = angle
 
     def set_coordinates_zero(self):
         self.image = self.images[self.index]
@@ -391,6 +436,7 @@ class MainWindow:
             self.set_coordinates_zero()
             self.set_button_text()
             self.update_circles()
+
     def get_previous_pose(self):
         self.get_json()
         print('Getting previous pose.')
@@ -858,7 +904,6 @@ class MainWindow:
 
         self.set_button_text()
         self.update_circles()
-
 
     def set_predicted_pose(self):
         """"nose, left eye, right eye, left ear, right ear, left shoulder, right shoulder, left elbow, right elbow,
